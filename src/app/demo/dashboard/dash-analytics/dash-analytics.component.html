@@ -1,0 +1,543 @@
+<!--<div class="row">
+   conversion-section start 
+  <div class="col-sm-12">
+    <div class="row no-gutters">
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>User</span>
+          <h3>798</h3>
+          <app-apex-chart chartID="analytics-apex-user-chart" [chartConfig]="this.chartDB.userAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Session</span>
+          <h3>486</h3>
+          <app-apex-chart chartID="analytics-apex-session-chart" [chartConfig]="this.chartDB.sessionAACC">
+          </app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Page view</span>
+          <h3>9454</h3>
+          <app-apex-chart chartID="analytics-apex-page-view-chart" [chartConfig]="this.chartDB.pageViewAACC">
+          </app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Page / Session</span>
+          <h3>7.15</h3>
+          <app-apex-chart chartID="analytics-apex-page-session-chart" [chartConfig]="this.chartDB.pageSessionAACC">
+          </app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Avg. Session Time</span>
+          <h3>00:04:30</h3>
+          <app-apex-chart chartID="analytics-apex-avg-session-chart" [chartConfig]="this.chartDB.avgSessionAACC">
+          </app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Bounce Rate</span>
+          <h3>1.55%</h3>
+          <app-apex-chart chartID="analytics-apex-bounce-rate-chart" [chartConfig]="this.chartDB.bounceRateAACC">
+          </app-apex-chart>
+        </app-card>
+      </div>
+    </div>
+  </div>
+   conversion-section end 
+
+   account-section start 
+  <div class="col-xl-8">
+    <app-card cardTitle="Daily Visitor" [options]="false">
+      <app-apex-chart chartID="daily-visitor-aa-cc" [chartConfig]="this.chartDB.dailyVisitorAACC"
+        [xAxis]="dailyVisitorAxis"></app-apex-chart>
+    </app-card>
+  </div>
+  <div class="col-xl-4">
+    <app-card [hidHeader]="true">
+      <div class="row">
+        <div class="col-auto">
+          <h6>Devices</h6>
+        </div>
+        <div class="col text-right">
+          <h2 class="mb-0">1042</h2>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-success f-10 m-r-5"></i>66%</h3>
+          <span class="ml-3">Desktop</span>
+        </div>
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-primary f-10 m-r-5"></i>26%</h3>
+          <span class="ml-3">Tablet</span>
+        </div>
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-danger f-10 m-r-5"></i>8%</h3>
+          <span class="ml-3">Mobile</span>
+        </div>
+      </div>
+      <div class="progressbar-stack mt-4">
+        <div *ngFor="let bar of deviceProgressBar" [ngStyle]="{width: bar.value + '%'}" class="float-left">
+          <ngb-progressbar [type]="bar.type" height="8px" [value]="100"></ngb-progressbar>
+        </div>
+      </div>
+    </app-card>
+    <app-card [hidHeader]="true">
+      <div class="row align-items-start">
+        <div class="col">
+          <h2 class="mb-0">954</h2>
+        </div>
+        <div class="col-auto text-right">
+          <h6 class="">Location</h6>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-sm-6">
+          <span class="d-block"><i class="fas fa-circle text-c-green f-10 m-r-10"></i>India</span>
+          <span class="d-block"><i class="fas fa-circle text-c-red f-10 m-r-10"></i>France</span>
+          <span class="d-block"><i class="fas fa-circle text-c-blue f-10 m-r-10"></i>Other</span>
+        </div>
+        <div class="col-sm-6">
+          <span class="d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-10"></i>United states</span>
+          <span class="d-block"><i class="fas fa-circle text-c-purple f-10 m-r-10"></i>United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="progress mt-3" style="height:20px;">
+        <div class="progress-bar badge-light-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30"
+          aria-valuemin="0" aria-valuemax="100">24%</div>
+        <div class="progress-bar badge-light-danger rounded" role="progressbar" style="width: 25%;" aria-valuenow="25"
+          aria-valuemin="0" aria-valuemax="100">12%</div>
+        <div class="progress-bar badge-light-primary rounded" role="progressbar" style="width: 20%;" aria-valuenow="20"
+          aria-valuemin="0" aria-valuemax="100">10%</div>
+        <div class="progress-bar badge-light-warning rounded" role="progressbar" style="width: 15%;" aria-valuenow="15"
+          aria-valuemin="0" aria-valuemax="100">8%</div>
+        <div class="progress-bar badge-light-info rounded" role="progressbar" style="width: 25%;" aria-valuenow="25"
+          aria-valuemin="0" aria-valuemax="100">35%</div>
+      </div>
+    </app-card>
+  </div>
+   account-section end 
+
+   customer overview start 
+  <div class="col-md-12">
+    <app-card cardTitle="Campaign Monitor" cardClass="table-card" blockClass="p-0">
+      <perfect-scrollbar [style.max-height]="'362px'">
+        <table class="table table-hover m-b-0">
+          <thead>
+            <tr>
+              <th><span>Campaign date</span></th>
+              <th>
+                <span>Click
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Cost
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>CTR
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>ARPU
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>ECPI
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>ROI
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Revenue
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Conversions
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08-11-2016</td>
+              <td>786
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="60"></ngb-progressbar>
+                </div>
+              </td>
+              <td>485
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="50"></ngb-progressbar>
+                </div>
+              </td>
+              <td>769
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>45,3%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="60"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,7%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>8,56
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="40"></ngb-progressbar>
+                </div>
+              </td>
+              <td>10:55
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>33.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="40"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>15-10-2016</td>
+              <td>786
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="65"></ngb-progressbar>
+                </div>
+              </td>
+              <td>523
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="80"></ngb-progressbar>
+                </div>
+              </td>
+              <td>736
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="80"></ngb-progressbar>
+                </div>
+              </td>
+              <td>78,3%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>7,56
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="44"></ngb-progressbar>
+                </div>
+              </td>
+              <td>4:30
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="68"></ngb-progressbar>
+                </div>
+              </td>
+              <td>76.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="90"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>08-08-2017</td>
+              <td>624
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="45"></ngb-progressbar>
+                </div>
+              </td>
+              <td>436
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="55"></ngb-progressbar>
+                </div>
+              </td>
+              <td>756
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="95"></ngb-progressbar>
+                </div>
+              </td>
+              <td>78,3%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="38"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,4%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>9,45
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="41"></ngb-progressbar>
+                </div>
+              </td>
+              <td>9:05
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="67"></ngb-progressbar>
+                </div>
+              </td>
+              <td>8.63%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="41"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>11-12-2017</td>
+              <td>423
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="54"></ngb-progressbar>
+                </div>
+              </td>
+              <td>123
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>756
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="75"></ngb-progressbar>
+                </div>
+              </td>
+              <td>78,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="60"></ngb-progressbar>
+                </div>
+              </td>
+              <td>45,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="90"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,85
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>7:45
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="40"></ngb-progressbar>
+                </div>
+              </td>
+              <td>33.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="80"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>05-06-2015</td>
+              <td>465
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="66"></ngb-progressbar>
+                </div>
+              </td>
+              <td>463
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="50"></ngb-progressbar>
+                </div>
+              </td>
+              <td>456
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>68,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>76,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="32"></ngb-progressbar>
+                </div>
+              </td>
+              <td>7,56
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>8:45
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="71"></ngb-progressbar>
+                </div>
+              </td>
+              <td>39.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="38"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>08-11-2016</td>
+              <td>786
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="43"></ngb-progressbar>
+                </div>
+              </td>
+              <td>485
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>769
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="69"></ngb-progressbar>
+                </div>
+              </td>
+              <td>45,3%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="90"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,7%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="80"></ngb-progressbar>
+                </div>
+              </td>
+              <td>8,56
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="41"></ngb-progressbar>
+                </div>
+              </td>
+              <td>10:55
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="55"></ngb-progressbar>
+                </div>
+              </td>
+              <td>33.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>15-10-2016</td>
+              <td>786
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="61"></ngb-progressbar>
+                </div>
+              </td>
+              <td>523
+                <div class="mt-1">
+                  <ngb-progressbar type="primary" height="4px" [value]="45"></ngb-progressbar>
+                </div>
+              </td>
+              <td>736
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>78,3%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="60"></ngb-progressbar>
+                </div>
+              </td>
+              <td>6,6%
+                <div class="mt-1">
+                  <ngb-progressbar type="info" height="4px" [value]="30"></ngb-progressbar>
+                </div>
+              </td>
+              <td>7,56
+                <div class="mt-1">
+                  <ngb-progressbar type="danger" height="4px" [value]="40"></ngb-progressbar>
+                </div>
+              </td>
+              <td>4:30
+                <div class="mt-1">
+                  <ngb-progressbar type="warning" height="4px" [value]="70"></ngb-progressbar>
+                </div>
+              </td>
+              <td>76.8%
+                <div class="mt-1">
+                  <ngb-progressbar type="success" height="4px" [value]="40"></ngb-progressbar>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </perfect-scrollbar>
+    </app-card>
+  </div>
+   customer overview start
+</div>-->
+<div class="col-sm-12">
+  <app-card cardTitle="Carousel With Captions" [options]="false">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/acupace_front_carousel1.jpeg" alt="First Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">First slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/acupace_front_carousel2.jpg" alt="Ssecond Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Second slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/acupace_front_carousel3.png" alt="Third Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <!-- <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/img-slide-7.jpg" alt="Third Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Forth slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/img-slide-6.jpg" alt="Third Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Fifth slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/img-slide-5.jpg" alt="Third Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Sixth slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img class="d-block w-100" src="assets/images/slider/img-slide-4.jpg" alt="Third Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white">Seventh slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template> -->
+    </ngb-carousel>
+  </app-card>
+</div>
