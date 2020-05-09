@@ -5,7 +5,7 @@ import { DashAnalyticsRoutingModule } from './dash-analytics-routing.module';
 import { DashAnalyticsComponent } from './dash-analytics.component';
 import {SharedModule} from '../../../theme/shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule ,NgbButtonsModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     ReactiveFormsModule,
     NgbProgressbarModule,
     NgbPopoverModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbButtonsModule
   ],
   declarations: [
     DashAnalyticsComponent,

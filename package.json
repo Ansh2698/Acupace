@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "angular-alert-module": "^2.0.3",
     "apexcharts": "^3.8.0",
     "bootstrap": "^4.3.1",
     "css-animator": "^2.3.1",

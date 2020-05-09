@@ -487,19 +487,12 @@
    customer overview start
 </div>-->
 <div class="col-sm-12">
-  <app-card cardTitle="Carousel With Captions" [options]="false">
+  <app-card cardTitle="Acumeet" [options]="false">
     <ngb-carousel>
-      <ng-template ngbSlide>
-        <img class="d-block w-100" src="assets/images/slider/acupace_front_carousel1.jpeg" alt="First Slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="text-white">First slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-      </ng-template>
       <ng-template ngbSlide>
         <img class="d-block w-100" src="assets/images/slider/acupace_front_carousel2.jpg" alt="Ssecond Slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="text-white">Second slide label</h5>
+          <h5 class="text-white">First slide label</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
       </ng-template>
@@ -539,5 +532,11 @@
         </div>
       </ng-template> -->
     </ngb-carousel>
+    <br><br>
+    <a [routerLink]="['/auth/signup']">
+    <div class="btn-group btn-group-lg col-12" role="group" aria-label="button groups xl">
+      <button type="button" class="btn btn-secondary">Start</button>
+    </div>
+    </a>
   </app-card>
 </div>
