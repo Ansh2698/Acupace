@@ -72,14 +72,14 @@ const NavigationItems = [
         title: 'Extensions',
         type: 'item',
         url: '/dashboard/analytics',
-        icon: 'feather icon-home'
+        icon: 'feather icon-extensions'
       },
       {
         id: 'dashboard',
         title: 'Bots',
         type: 'item',
         url: '/dashboard/analytics',
-        icon: 'feather icon-home'
+        icon: 'feather icon-bots'
       },
       {
         id: 'dashboard',
