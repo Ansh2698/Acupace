@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
-import {AuthSignupModule} from '../../demo/pages/authentication/auth-signup/auth-signup.module'
 // import { AlertController } from 'ionic-angular';
 // import { FileChooser } from '@ionic-native/file-chooser';
 
@@ -40,9 +39,7 @@ import { map } from 'rxjs/operator/map';
 //   headers.append('Accept','application/json');
 //   headers.append('content-type','application/json'); 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class WebServiceService { 
 
 
