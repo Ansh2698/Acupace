@@ -52,7 +52,13 @@
     </div>
   </li>-->
   <li>
-    <a [routerLink]="['/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout"></a>
+    <a [routerLink]="['/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout"><button type="button" class="btn btn-secondary" ngbTooltip="btn-secondary">Create meeting</button></a>
+  </li>
+  <li>
+    <a [routerLink]="['/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout"><button type="button" class="btn btn-secondary" ngbTooltip="btn-secondary">Join meeting</button></a>
+  </li>
+  <li>
+    <a [routerLink]="['/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout"><button type="button" class="btn btn-secondary" ngbTooltip="btn-secondary">Host meeting</button></a>
   </li>
   <li>
     <div class="dropdown drp-user" ngbDropdown placement="auto">
