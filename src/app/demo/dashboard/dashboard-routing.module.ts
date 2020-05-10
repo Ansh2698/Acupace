@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthenticationRoutingModule } from '.././pages/authentication/authentication-routing.module';
 
 const routes: Routes = [
   {

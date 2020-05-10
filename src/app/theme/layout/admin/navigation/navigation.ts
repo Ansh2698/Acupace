@@ -34,22 +34,71 @@ const NavigationItems = [
     children: [
       {
         id: 'dashboard',
-        title: 'Dashboard',
+        title: 'Overview',
         type: 'item',
         url: '/dashboard/analytics',
         icon: 'feather icon-home'
       },
       {
+        id: 'dashboard',
+        title: 'Users',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-user'
+      },
+      {
+        id: 'dashboard',
+        title: 'Groups',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-users'
+      },
+      {
+        id: 'dashboard',
+        title: 'Roles',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-roles'
+      },
+      {
+        id: 'dashboard',
+        title: 'API keys',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-keys'
+      },
+      {
+        id: 'dashboard',
+        title: 'Extensions',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-home'
+      },
+      {
+        id: 'dashboard',
+        title: 'Bots',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-home'
+      },
+      {
+        id: 'dashboard',
+        title: 'Messeges',
+        type: 'item',
+        url: '/dashboard/analytics',
+        icon: 'feather icon-message-square'
+      },
+      /*{
         id: 'page-layouts',
         title: 'Horizontal Layouts',
         type: 'item',
         url: '/layout/horizontal',
         target: true,
-        icon: 'feather icon-layout'
-      }
+        icon: 'feather icon-home'
+      }*/
     ]
   },
-  {
+  /*{
     id: 'ui-element',
     title: 'UI ELEMENT & FORMS',
     type: 'group',
@@ -316,7 +365,7 @@ const NavigationItems = [
         icon: 'feather icon-sidebar'
       }
     ]
-  }
+  }*/
 ];
 
 @Injectable()

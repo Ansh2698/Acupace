@@ -24,7 +24,12 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {WebServiceService} from './providers/web-service/web-service.service';
+
+//import { TestingModule } from './testing/testing.module';
+
+//import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,7 @@ import {WebServiceService} from './providers/web-service/web-service.service';
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective
+    ToggleFullScreenDirective,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,10 @@ import {WebServiceService} from './providers/web-service/web-service.service';
     NgbDropdownModule,
     NgbTooltipModule,
     NgbButtonsModule,
-    NgbTabsetModule
+    NgbTabsetModule,
+    //NavBarModule,
+
+    //TestingModule
   ],
   providers: [NavigationItem,WebServiceService],
   bootstrap: [AppComponent]
