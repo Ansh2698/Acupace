@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
+import { BaseComponent } from './theme/layout/base/base.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: AdminComponent,
     children: [
       {
@@ -44,7 +45,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'admin',
     component: AuthComponent,
     children: [
       {
@@ -56,6 +57,11 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/maintenance/maintenance.module').then(module => module.MaintenanceModule)
       }
     ]
+  },
+  {
+    path:'',
+    component:BaseComponent,
+    pathMatch: 'full'
   }
 ];
 

@@ -26,7 +26,8 @@ import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {WebServiceService} from './providers/web-service/web-service.service';
-
+import { BaseComponent } from './theme/layout/base/base.component';
+import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -47,6 +48,7 @@ import {WebServiceService} from './providers/web-service/web-service.service';
     NavRightComponent,
     ConfigurationComponent,
     ToggleFullScreenDirective,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import {WebServiceService} from './providers/web-service/web-service.service';
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
+    NgbCarouselModule
     //NavBarModule,
 
     //TestingModule
