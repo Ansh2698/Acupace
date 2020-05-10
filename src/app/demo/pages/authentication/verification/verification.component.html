@@ -5,28 +5,29 @@
         <div class="col-md-12">
           <div class="card-body">
             <img src="assets/images/acu-logo.png" alt="" class="img-fluid mb-4" id="main-logo">
-            <h4 class="mb-3 f-w-400">Signin</h4>
+            <h4 class="mb-3 f-w-400"><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">VALIDATE EMAIL</button></h4>
+            <p class="mb-2 text-muted"> Enter Verification Code Recieved on Your Email Id</p>
+             
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="feather icon-mail"></i></span>
+                <!--<span class="input-group-text"><i class="feather icon-mail"></i></span>-->
               </div>
-              <input type="email" class="form-control" placeholder="Email address">
+              <input type="code" class="form-control" placeholder="Enter Code">
             </div>
-            <div class="input-group mb-4">
+            <!--<div class="input-group mb-4">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="feather icon-lock"></i></span>
               </div>
               <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="form-group text-left mt-2">
+            </div>-->
+            <!--<div class="form-group text-left mt-2">
               <div class="checkbox checkbox-primary d-inline">
                 <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
                 <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
               </div>
-            </div>
-            <a [routerLink]="['/dashboard/analytics']" class="f-w-400"><button class="btn btn-block btn-primary mb-4">Signin</button></a>
-            <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/reset-password']" class="f-w-400">Reset</a></p>
-            <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']" class="f-w-400">Signup</a></p>
+            </div>-->
+            <a [routerLink]="['/dashboard/analytics']" class="f-w-400"><button class="btn btn-block btn-primary mb-4">Next</button></a>
+            <p class="mb-2 text-muted"><a [routerLink]="['/auth/reset-password']" class="f-w-400">Resend Code</a></p>
           </div>
         </div>
       </div>

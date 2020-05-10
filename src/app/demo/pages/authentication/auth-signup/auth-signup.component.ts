@@ -1,4 +1,20 @@
-import { Component, ElementRef, Renderer, Input ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-auth-signup',
+  templateUrl: './auth-signup.component.html',
+  styleUrls: ['./auth-signup.component.scss']
+})
+export class AuthSignupComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+/*import { Component, ElementRef, Renderer, Input ,OnInit} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 // import { NavController, AlertController, Events, LoadingController, Loading, IonicPage, NavParams, Platform } from 'ionic-angular';
@@ -98,3 +114,5 @@ export class AuthSignupComponent implements OnInit {
   ngOnInit() {
   }
 }
+*/
+
