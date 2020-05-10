@@ -86,7 +86,7 @@ const NavigationItems = [
         title: 'Messeges',
         type: 'item',
         url: '/dashboard/analytics',
-        icon: 'feather icon-home'
+        icon: 'feather icon-message-square'
       },
       /*{
         id: 'page-layouts',
