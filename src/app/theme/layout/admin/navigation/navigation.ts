@@ -43,7 +43,7 @@ const NavigationItems = [
         id: 'dashboard',
         title: 'Users',
         type: 'item',
-        url: '/dashboard/analytics',
+        url: '/admin/forms/basic',
         icon: 'feather icon-user'
       },
       {
