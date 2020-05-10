@@ -8,6 +8,10 @@ const routes: Routes = [
       {
         path: 'basic',
         loadChildren: () => import('./basic-elements/basic-elements.module').then(module => module.BasicElementsModule)
+      },
+      {
+        path:'create',
+        loadChildren: () => import('./create-user/create-user.module').then(module => module.CreateUserModule)
       }
     ]
   }
