@@ -45,6 +45,10 @@ const routes: Routes = [
       {
         path:'profile',
         loadChildren: () => import('./demo/pages/authentication/profile/profile.module').then(module => module.ProfileModule)
+      },
+      {
+        path:'meeting',
+        loadChildren: () => import('./demo/pages/meeting/meeting.module').then(module => module.MeetingModule)
       }
     ]
   },
