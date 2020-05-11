@@ -50,7 +50,7 @@ const NavigationItems = [
         id: 'groups',
         title: 'Groups',
         type: 'item',
-        url: '/admin/sample-page',
+        url: '/admin/forms/groups',
         icon: 'feather icon-users'
       },
       {
@@ -72,14 +72,14 @@ const NavigationItems = [
         title: 'Extensions',
         type: 'item',
         url: '/dashboard/analytics',
-        icon: 'feather icon-home'
+        icon: 'feather icon-extensions'
       },
       {
         id: 'dashboard',
         title: 'Bots',
         type: 'item',
         url: '/dashboard/analytics',
-        icon: 'feather icon-home'
+        icon: 'feather icon-bots'
       },
       {
         id: 'dashboard',
