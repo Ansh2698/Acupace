@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard/analytics',
+        redirectTo: 'charts/apex',
         pathMatch: 'full'
       },
       {
@@ -41,8 +41,7 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
-      }
-      ,
+      },
       {
         path:'profile',
         loadChildren: () => import('./demo/pages/authentication/profile/profile.module').then(module => module.ProfileModule)
