@@ -1,4 +1,24 @@
-<app-card cardTitle="User/ create-user" [options]="false">
+<ng-container>
+  <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="page-header-title">
+            <ng-container><h5 class="m-b-10">Create</h5></ng-container>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:"><i class="feather icon-home"></i></a></li>
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript:">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Create</li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<app-card [options]="false">
       <h5>New User</h5>
       <hr>
       <form action="javascript:">
@@ -48,26 +68,7 @@
 
 
 <!--
-<ng-container>
-  <div class="page-header">
-    <div class="page-block">
-      <div class="row align-items-center">
-        <div class="col-md-12">
-          <div class="page-header-title">
-            <ng-container><h5 class="m-b-10">Create</h5></ng-container>
-          </div>
-          <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:"><i class="feather icon-home"></i></a></li>
-            <ng-container>
-              <li class="breadcrumb-item"><a href="javascript:">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Create</li>
-            </ng-container>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-container>
+
 <div class="wrapper">
     <div class="title">
       Create User
