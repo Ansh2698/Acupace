@@ -24,7 +24,7 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-
+import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
@@ -64,7 +64,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
 
     //TestingModule
   ],
-  providers: [NavigationItem,WebServiceService],
+  providers: [NavigationItem,WebServiceService,UserList],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
