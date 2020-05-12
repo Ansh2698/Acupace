@@ -1,75 +1,81 @@
 <ng-container>
-    <div class="page-header">
-      <div class="page-block">
-        <div class="row align-items-center">
-          <div class="col-md-12">
-            <div class="page-header-title">
-              <ng-container><h5 class="m-b-10">Room</h5></ng-container>
-            </div>
-            <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="javascript:"><i class="feather icon-home"></i></a></li>
-              <ng-container>
-                <li class="breadcrumb-item"><a href="javascript:">MyRoom</a></li>
-              </ng-container>
-            </ul>
+  <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="page-header-title">
+            <ng-container>
+              <h5 class="m-b-10">Room</h5>
+            </ng-container>
           </div>
-          
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:"><i class="feather icon-home"></i></a></li>
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript:">MyRoom</a></li>
+            </ng-container>
+          </ul>
         </div>
+
       </div>
     </div>
-  </ng-container>
-  <div class="col-sm-12">
-    <app-card [hidHeader]="true" cardClass="tab-card">
-      <h3 class="mb-3">My Room</h3>
-      <ngb-tabset type="pills">
-        <ngb-tab title="Created Rooms" class="mb-3">
-          <ng-template ngbTabContent>
-            
+  </div>
+</ng-container>
+<div class="col-sm-12">
+  <app-card [hidHeader]="true" cardClass="tab-card">
+    <h3 class="mb-3">My Room</h3>
+    <ngb-tabset type="pills">
+      <ngb-tab title="Created Rooms" class="mb-3">
+        <ng-template ngbTabContent>
+
           <div class="card">
-        <div class="card-body text-center">
-          <h5 class="card-title">No Meeting !!!</h5>
-          <p class="card-text">Start your first meeting</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Create Meeting</button>
-      <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
-        <div class="app-modal-header">
-          <h5 class="modal-title">Create New Room</h5>
-          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="app-modal-body">
-            <div class="input-group mb-3">
-              <input type="" class="form-control" placeholder="Meeting Room Name">
-            </div>
-            <button class="btn btn-block btn-primary mb-4" type="button" data-toggle="modal" (click)="inviteLink.show()" dialogClass="modal-dialog-centered">Create Room</button>
-            <!--<app-ui-modal #inviteLink dialogClass="modal-dialog-centered">
+            <div class="card-body text-center">
+              <h5 class="card-title">No Meeting !!!</h5>
+              <p class="card-text">Start your first meeting</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal"
+                (click)="exampleModalCenter.show()">Create Meeting</button>
+              <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
+                <div class="app-modal-header">
+                  <h5 class="modal-title">Create New Room</h5>
+                  <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+                    (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="app-modal-body">
+                  <div class="input-group mb-3">
+                    <input type="" class="form-control" placeholder="Meeting Room Name">
+                  </div>
+                  <button class="btn btn-block btn-primary mb-4" type="button" data-toggle="modal"
+                    (click)="inviteLink.show()" dialogClass="modal-dialog-centered">Create Room</button>
+                  <!--<app-ui-modal #inviteLink dialogClass="modal-dialog-centered">
               <h5 class="modal-title">Create New Room</h5>
           <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="inviteLink.hide()"><span aria-hidden="true">&times;</span></button>
         </div>
 
             </app-ui-modal>-->
-            <hr>
-            <p class="mb-2 text-muted">If You want to join room  <a [routerLink]="['admin/auth/reset-password']" class="f-w-400">Click Here</a></p>
-        </div>
-        <!--<div class="app-modal-footer">
+                  <hr>
+                  <p class="mb-2 text-muted">If You want to join room <a [routerLink]="['/admin/auth/reset-password']"
+                      class="f-w-400">Click Here</a></p>
+                </div>
+                <!--<div class="app-modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>-->
-      </app-ui-modal>
-        </div>
-      </div>
-        
-          </ng-template>
-        </ngb-tab>
-        <ngb-tab title="Joined Rooms">
-          <ng-template ngbTabContent>
-            <p>No rooms found !!!</p>
-          </ng-template>
-        </ngb-tab>
-        <ngb-tab title="Meeting Logs">
-          <ng-template ngbTabContent>
-            <p>No meeting logs found !!!</p>
-          </ng-template>
-        </ngb-tab>
-      </ngb-tabset>
+              </app-ui-modal>
+            </div>
+          </div>
 
-    </app-card>
-  </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Joined Rooms">
+        <ng-template ngbTabContent>
+          <p>No rooms found !!!</p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Meeting Logs">
+        <ng-template ngbTabContent>
+          <p>No meeting logs found !!!</p>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+
+  </app-card>
+</div>
