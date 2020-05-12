@@ -39,7 +39,36 @@
             <div class="input-group mb-3">
               <input type="" class="form-control" placeholder="Meeting Room Name">
             </div>
-            <button class="btn btn-block btn-primary mb-4" type="button" data-toggle="modal" (click)="inviteLink.show()" dialogClass="modal-dialog-centered">Create Room</button>
+
+
+
+            <button type="button" class="btn btn-primary" (click)="modalDefault.show()">Create Room</button>
+            <app-ui-modal #modalDefault>
+              <div class="app-modal-body">
+              <div class="app-modal-header">
+              <h4 class="mb-3 f-w-400">Invite People to Join Your Conference Room</h4>
+              <h6 class="mb-3 f-w-400">Everyone who has the below link can join your room(roomname)</h6>
+               <!-- place link here --> 
+
+               <div class="input-group mb-3">
+              <input type="link" class="form-control" placeholder="https://inviteLink/roomname">
+            </div>
+
+
+
+              <button type="button" class="btn btn-primary">Share</button>
+              <span> </span><button type="button" class="btn btn-primary">Ok</button>
+          <!--<button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalDefault.hide()"><span aria-hidden="true">&times;</span></button>-->
+
+        </div>
+        
+        <div class="app-modal-footer">
+        </div>
+          
+          <!--<button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalDefault.hide()">Close</button>-->
+          
+        </div>
+      </app-ui-modal>
             <!--<app-ui-modal #inviteLink dialogClass="modal-dialog-centered">
               <h5 class="modal-title">Create New Room</h5>
           <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="inviteLink.hide()"><span aria-hidden="true">&times;</span></button>
