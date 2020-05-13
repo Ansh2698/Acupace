@@ -1,8 +1,67 @@
+<!-- Editable table -->
+<!--
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Person Name</th>
+          <th class="text-center">Age</th>
+          <th class="text-center">Company Name</th>
+          <th class="text-center">Country</th>
+          <th class="text-center">City</th>
+          <th class="text-center">Sort</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index">
+          <td>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+          </td>
+          <td>
+            <span class="table-up">
+              <a class="indigo-text">
+                <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
+              </a>
+            </span>
+            <span class="table-down">
+              <a class="indigo-text">
+                <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+-->
+<!-- Editable table -->
+
 <div class="row">
   <div class="col-sm-12">
-    <!--<h2><a [routerLink]="['dashboard/analytics']">Acupace Technology </a></h2>-->
-<!--<h5 class="mt-5"> Username </h5>-->
-
 <span></span>
 
  

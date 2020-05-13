@@ -28,6 +28,7 @@ import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-ele
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+//import { TestingComponent } from './demo/pages/testing/testing.component';
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -49,6 +50,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     ConfigurationComponent,
     ToggleFullScreenDirective,
     BaseComponent,
+    //TestingComponent,
   ],
   imports: [
     BrowserModule,
