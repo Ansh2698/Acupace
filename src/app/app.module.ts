@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './theme/shared/shared.module';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent } from './theme/layout/auth/auth.component';
@@ -59,7 +59,8 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    HttpClientModule
     //NavBarModule,
 
     //TestingModule
