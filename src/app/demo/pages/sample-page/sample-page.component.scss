@@ -1,22 +1,57 @@
-.local {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    width: 20vw;
-    height: 20vh;
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .remote {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index:-1;
-  }
-  .button{
-    z-index: 2;
-  }
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+p {
+  font-family: Lato;
+}
+
+.video-container{
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.local{
+  background-color: #404040;
+  height: 250px;
+  width: 250px;
+  border: black 1px solid;
+  margin: 8px;
+}
+#localCallId{
+  height: 250px; 
+  width: 250px;
+}
+
+.remote{
+  background-color: #404040;
+  height: 250px;
+  width: 250px;
+  border: black 1px solid;
+  margin: 8px;
+}
+
+.video-buttons{
+  width: 250px;
+  top: 210px;
+  position: relative;
+  text-align: center;
+  z-index: 999;
+}
+
+.video-buttons i{
+  cursor: pointer;
+}
+
+.endCall{
+  color: red;
+}
+
+.startCall{
+  color: white;
+}
+
+.mic{
+  color: white;
+}

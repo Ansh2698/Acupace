@@ -1,3 +1,12 @@
-<div [id]="localCallId" class="local"></div>
-<button type="button" class="btn btn-primary btn-lg" (click)="Leave()">End Call</button>
-<div *ngFor="let callId of remoteCalls" [id]="callId" class="remote"></div>
+<div class="video-container">
+	<div [id]="localCallId" class="local">
+		<div class="video-buttons">
+			<ng-container *ngIf="activeCall">
+				<i class="endCall material-icons" (click)="Leave()">phone</i>
+				<i class="mic material-icons" >mic</i>
+				<i class="mic material-icons" >videocam</i>
+			</ng-container>
+		</div>
+	</div>
+	<div *ngFor="let callId of remoteCalls" [id]="callId" class="remote"></div>
+</div>

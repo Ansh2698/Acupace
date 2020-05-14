@@ -6,7 +6,9 @@ import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from '
   styleUrls: ['./sample-page.component.scss']
 })
 export class SamplePageComponent implements OnInit {
-
+  activeCall: boolean = true;
+  audioEnabled: boolean = true;
+  videoEnabled: boolean = true;
   title = 'angular-video';
   localCallId = 'agora_local';
   remoteCalls: string[] = [];
@@ -121,6 +123,7 @@ export class SamplePageComponent implements OnInit {
   }
   Leave(){
     this.client.leave(function(){
+      this.activeCall = false;
       console.log("Client Succesfuuly Leave");
     },function(err){
       console.log("Some error in Leaving");
