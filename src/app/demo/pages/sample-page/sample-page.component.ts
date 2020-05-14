@@ -73,10 +73,8 @@ export class SamplePageComponent implements OnInit {
     this.client.on(ClientEvent.RemoteStreamSubscribed, evt => {
       const stream = evt.stream as Stream;
       const id = this.getRemoteId(stream);
-      if (!this.remoteCalls.length) {
-        this.remoteCalls.push(id);
-        setTimeout(() => stream.play(id), 1000);
-      }
+      this.remoteCalls.push(id);
+      setTimeout(() => stream.play(id), 1000);
     });
 
     this.client.on(ClientEvent.RemoteStreamRemoved, evt => {
@@ -121,7 +119,13 @@ export class SamplePageComponent implements OnInit {
       err => console.error('getUserMedia failed', err)
     );
   }
-
+  Leave(){
+    this.client.leave(function(){
+      console.log("Client Succesfuuly Leave");
+    },function(err){
+      console.log("Some error in Leaving");
+    })
+  }
   private getRemoteId(stream: Stream): string {
     return `agora_remote-${stream.getId()}`;
   }
