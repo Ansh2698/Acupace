@@ -5,14 +5,13 @@ import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from '
   templateUrl: './sample-page.component.html',
   styleUrls: ['./sample-page.component.scss']
 })
-export class SamplePageComponent implements OnInit {
-  activeCall: boolean = true;
+export class SamplePageComponent{
+  activeCall: boolean = false;
   audioEnabled: boolean = true;
   videoEnabled: boolean = true;
   title = 'angular-video';
   localCallId = 'agora_local';
   remoteCalls: string[] = [];
-
   private client: AgoraClient;
   private localStream: Stream;
   private uid: number;
@@ -21,11 +20,13 @@ export class SamplePageComponent implements OnInit {
     this.uid = Math.floor(Math.random() * 100);
   }
 
-  ngOnInit() {
+  startCall(){
+    this.activeCall=true;
     this.client = this.ngxAgoraService.createClient({ mode: 'rtc', codec: 'h264' });
     this.assignClientHandlers();
 
     this.localStream = this.ngxAgoraService.createStream({ streamID: this.uid, audio: true, video: true, screen: false });
+    this.localStream.setVideoProfile("120p_1");
     this.assignLocalStreamHandlers();
     // Join and publish methods added in this step
     this.initLocalStream(() => this.join(uid => this.publish(), error => console.error(error)));
@@ -121,13 +122,30 @@ export class SamplePageComponent implements OnInit {
       err => console.error('getUserMedia failed', err)
     );
   }
-  Leave(){
-    this.client.leave(function(){
-      this.activeCall = false;
-      console.log("Client Succesfuuly Leave");
-    },function(err){
-      console.log("Some error in Leaving");
-    })
+  leave(){
+    if(this.activeCall){
+      this.client.leave(() => {
+        this.activeCall = false;
+        document.getElementById('agora_local').innerHTML = "";
+        console.log("Leavel channel successfully");
+      }, (err) => {
+        console.log("Leave channel failed");
+      });
+    }
+    else {
+      this.ngxAgoraService.AgoraRTC.Logger.warning('Local client is not connected to channel.');
+    }
+  }
+  toggleAudio() {
+    this.audioEnabled = !this.audioEnabled;
+    if (this.audioEnabled) this.localStream.enableAudio();
+    else this.localStream.disableAudio();
+  }
+
+  toggleVideo() {
+    this.videoEnabled = !this.videoEnabled;
+    if (this.videoEnabled) this.localStream.enableVideo();
+    else this.localStream.disableVideo();
   }
   private getRemoteId(stream: Stream): string {
     return `agora_remote-${stream.getId()}`;
