@@ -45,7 +45,9 @@ export class SamplePageComponent{
   publish(): void {
     this.client.publish(this.localStream, err => console.log('Publish local stream error: ' + err));
   }
-
+  unpublish(): void {
+    this.client.unpublish(this.localStream, error => console.error(error));
+  }
   private assignClientHandlers(): void {
     this.client.on(ClientEvent.LocalStreamPublished, evt => {
       console.log('Publish local stream successfully');
@@ -126,6 +128,8 @@ export class SamplePageComponent{
     if(this.activeCall){
       this.client.leave(() => {
         this.activeCall = false;
+        this.remoteCalls=[];
+        this.unpublish();
         document.getElementById('agora_local').innerHTML = "";
         console.log("Leavel channel successfully");
       }, (err) => {
