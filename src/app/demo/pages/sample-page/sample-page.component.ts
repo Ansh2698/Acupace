@@ -129,7 +129,7 @@ export class SamplePageComponent{
       this.client.leave(() => {
         this.activeCall = false;
         this.remoteCalls=[];
-        this.unpublish();
+        this.localStream.close();
         document.getElementById('agora_local').innerHTML = "";
         console.log("Leavel channel successfully");
       }, (err) => {
