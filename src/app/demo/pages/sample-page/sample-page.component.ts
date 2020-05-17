@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
-
 @Component({
   selector: 'app-sample-page',
   templateUrl: './sample-page.component.html',
@@ -152,7 +151,6 @@ export class SamplePageComponent{
     if (this.videoEnabled) this.localStream.enableVideo();
     else this.localStream.disableVideo();
   }
-  
   private getRemoteId(stream: Stream): string {
     return `agora_remote-${stream.getId()}`;
   }

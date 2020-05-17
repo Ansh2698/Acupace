@@ -155,7 +155,33 @@ export class WebServiceService {
 
   }
 
+  public AddInvitation(bodystring) {
+    return new Promise(resolve => {
 
+      this.http.post(this.apiUrlv1 + 'add_invitation_details.php', bodystring, this.headers)
+        //  .map(res => res.json())
+        .subscribe(data => {
+          //   this.loader.dismissAll();
+          this.data = data;
+          console.log(JSON.stringify(data));
+          resolve(this.data);
+        }, (err) => {
+          console.log(err);
+          this.loader.dismissAll();
+          if (400) {
+            resolve(err);
+            console.log(err);
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+          else {
+            console.log("Invitation sent Sucessfully on the mail of attendee");
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+        });
+    });
+  }
 
 //   public NotificationList(bodystring) {
 

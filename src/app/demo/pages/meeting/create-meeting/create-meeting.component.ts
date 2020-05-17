@@ -1,15 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import {WebServiceService} from '../../../../providers/web-service/web-service.service'
 @Component({
   selector: 'app-create-meeting',
   templateUrl: './create-meeting.component.html',
   styleUrls: ['./create-meeting.component.css']
 })
 export class CreateMeetingComponent implements OnInit {
-
-  constructor() { }
-
+  public inviteForm:FormGroup; 
+  public submitAttempt: boolean = false;
+  bodystring: any;
+  constructor( public formBuilder: FormBuilder , private webservice: WebServiceService) { 
+    this.inviteForm = this.formBuilder.group({
+      attendee_email: ['', Validators.compose([Validators.required])],
+      host_meeting_start_time: ['', Validators.compose([Validators.required])],
+      host_meeting_end_time: ['', Validators.compose([Validators.required])],
+    });
+  }
   ngOnInit() {
   }
-
+  Invite() {
+    this.submitAttempt = true;
+      let bodystring = {
+        "host_id":JSON.parse(localStorage.getItem("userDetails")).result.ID,
+        "host_name":JSON.parse(localStorage.getItem("userDetails")).result.name,
+        "host_email":JSON.parse(localStorage.getItem("userDetails")).result.user_email,
+        "role" : "host",
+        "host_device_details":localStorage.getItem("devicedetails"),
+        "host_meeting_start_time": this.inviteForm.get('host_meeting_start_time').value,
+        "host_meeting_end_time": this.inviteForm.get('host_meeting_end_time').value,
+        "attendee_email": this.inviteForm.get('attendee_email').value,
+      };
+      this.webservice.AddInvitation(bodystring)
+        .then(response => {
+          let data = JSON.stringify(response);
+          // this.webservice.showAlert(response);
+          // this.navCtrl.setRoot(LoginPage);
+          console.log('data' + data);
+        }, (err) => {
+          console.log("Error" + err);
+        });
+    }
 }
