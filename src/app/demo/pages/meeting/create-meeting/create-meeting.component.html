@@ -52,13 +52,19 @@
                 <div class="app-modal-body">
                   <div class="app-modal-header">
                     <h4 class="mb-3 f-w-400">Invite People to Join Your Conference Room</h4>
-                    <h6 class="mb-3 f-w-400">Everyone who has the below link can join your room(roomname)</h6>
                     <div class="app-modal-body">
-                      <div class="input-group mb-3">
-                        <input type="" class="form-control" placeholder="Link to the Room">
-                      </div>
-                      <button type="button" class="btn btn-primary share">Share</button>
-                      <button type="button" class="btn btn-primary" (click)="modalDefault.hide()">Ok</button>
+                      <form [formGroup]="inviteForm">
+                        <div class="input-group mb-3">
+                          <input type="email" class="form-control" placeholder="Please Enter the attendee_email" formControlName="attendee_email">
+                        </div>
+                        <div class="input-group mb-3">
+                          <input type="datetime-local" class="form-control" placeholder="Link to the Room" formControlName="host_meeting_start_time">
+                        </div>
+                        <div class="input-group mb-3">
+                          <input type="datetime-local" class="form-control" placeholder="Link to the Room" formControlName="host_meeting_end_time">
+                        </div>
+                      </form>
+                      <button type="button" class="btn btn-primary btn-lg" (click)="Invite()">Invite</button>
                     </div>
                   </div>
                   <div class="app-modal-footer">
