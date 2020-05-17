@@ -1,55 +1,32 @@
-<div class="col-12">
-  <app-card cardTitle="Group List" blockClass="table-border-style">
-    <div class="table-responsive">
+<div class="video-container">
+	<div class="call-container">
+	</div>
+	<div class="agora_local">
+		<div class="video-buttons">
+			<i class="startCall material-icons" (click)="startCall()" *ngIf="!activeCall">videocam</i>
+			<ng-container *ngIf="activeCall">
+				<i class="endCall material-icons" (click)="leave()" *ngIf="activeCall">phone</i>
+				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="audioEnabled">mic</i>
+				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="!audioEnabled">mic_off</i>
+				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="videoEnabled">videocam</i>
+				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="!videoEnabled">videocam_off</i>
 
-      <table class="table table-dark table-hover table-striped table-styling">
-        <thead>
-       <tr>
-      <th>Icon</th>
-      <th>Name</th>
-      <th>GUID</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Created By</th>
-      <th>Created at</th>
-      <th><button>Action</button></th>
-    </tr>
-  </thead>
-        <tbody>
-        <tr class="active-row">
-      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuRBFgBGO67Dxq9V-9vR3SsKBAhssT5hiqKsSFtK4jxuTkRxd1&usqp=CAU"></td>
-      <td>comic con</td>
-      <td>110120</td>
-      <td>public</td>
-      <td></td>
-      <td>coolboy62</td>
-      <td>Today at 1:04 PM</td>
-      <td><button>Action</button></td>
-    </tr>
-        <tr class="active-row">
-      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZxrQ1WYa2bUNqSiCiYYjOkoJh0aT9fLCJvAn7029weCqzHF5x&usqp=CAU"></td>
-      <td>acupace</td>
-      <td>1101655</td>
-      <td>public</td>
-      <td></td>
-      <td>coolboy62</td>
-      <td>Today at 12:04 PM</td>
-      <td><button>Action</button></td>
-    </tr>
-        <tr class="active-row">
-      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuRBFgBGO67Dxq9V-9vR3SsKBAhssT5hiqKsSFtK4jxuTkRxd1&usqp=CAU"></td>
-      <td>acumeet</td>
-      <td>1101658</td>
-      <td>public</td>
-      <td></td>
-      <td>coolboy62</td>
-      <td>Today at 11:04 AM</td>
-      <td><button>Action</button></td>
-    </tr>
-        
-        
-        </tbody>
-      </table>
-    </div>
-  </app-card>
+        <!-- for remote screen -->
+        <!--
+	    <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">testing</h5>
+          <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+  -->
+
+
+			</ng-container>
+		</div>
+		<div id="agora_local"></div>
+	</div>
+	<div class="agora_remote" *ngFor="let remote of remoteCalls" [id]="remote">
+	</div>
 </div>

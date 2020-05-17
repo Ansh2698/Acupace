@@ -49,6 +49,14 @@ const routes: Routes = [
       {
         path:'meeting',
         loadChildren: () => import('./demo/pages/meeting/meeting.module').then(module => module.MeetingModule)
+      },
+      {
+        path: 'messages',
+        loadChildren: () => import('./demo/pages/messages/messages.module').then(module => module.MessagesModule)
+      },
+      {
+        path: 'maintenance',
+        loadChildren: () => import('./demo/pages/maintenance/maintenance.module').then(module => module.MaintenanceModule)
       }
     ]
   },
@@ -60,10 +68,7 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('./demo/pages/authentication/authentication.module').then(module => module.AuthenticationModule)
       },
-      {
-        path: 'maintenance',
-        loadChildren: () => import('./demo/pages/maintenance/maintenance.module').then(module => module.MaintenanceModule)
-      }
+      
     ]
   },
   {

@@ -1,22 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AuthSignupRoutingModule } from './auth-signup-routing.module';
-import { AuthSignupComponent } from './auth-signup.component';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    AuthSignupRoutingModule
-  ],
-  declarations: [AuthSignupComponent]
-})
-export class AuthSignupModule { }
-
-
-/*
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthSignupRoutingModule } from './auth-signup-routing.module';
 import { AuthSignupComponent } from './auth-signup.component';
@@ -31,4 +14,5 @@ import {WebServiceService} from '../../../../providers/web-service/web-service.s
   declarations: [AuthSignupComponent]
 })
 export class AuthSignupModule { }
-*/
+
+

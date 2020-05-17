@@ -99,25 +99,25 @@ export class WebServiceService {
 
 
 
-//   public login_user_get(bodystring) {
+  public login_user_get(bodystring) {
 
-//     this.datafetch();
+    // this.datafetch();
 
-//     return new Promise(resolve => {
-//       this.http.post(this.apiUrlv1 + 'login.php', bodystring, this.headers)
-//         .subscribe(data => {
-//           console.log('login data', JSON.stringify(data));
-//           this.data = data;
-//           resolve(this.data);
-//           this.loader.dismissAll();
-//         }, (err) => {
-//           console.log(JSON.stringify(err));
-//           this.loader.dismissAll();
-//           this.showAlert(JSON.stringify(err));
+    return new Promise(resolve => {
+      this.http.post(this.apiUrlv1 + 'login.php', bodystring, this.headers)
+        .subscribe(data => {
+          console.log('login data', JSON.stringify(data));
+          this.data = data;
+          resolve(this.data);
+          // this.loader.dismissAll();
+        }, (err) => {
+          console.log(JSON.stringify(err));
+          // this.loader.dismissAll();
+          // this.showAlert(JSON.stringify(err));
 
-//         });
-//     });
-//   }
+        });
+    });
+  }
 
 
   public UserRegister(bodystring) {

@@ -6,26 +6,35 @@
           <div class="card-body">
             <img src="assets/images/acu-logo.png" alt="" class="img-fluid mb-4" id="main-logo">
             <h4 class="mb-3 f-w-400">Signin</h4>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="feather icon-mail"></i></span>
+            <form [formGroup]="loginForm">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-mobile"></i></span>
+                </div>
+                <input type="tel" class="form-control" placeholder="Phone Number" formControlName="mobileno">
               </div>
-              <input type="email" class="form-control" placeholder="Email address">
-            </div>
-            <div class="input-group mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="feather icon-lock"></i></span>
+              <div class="noborder" no-lines
+                *ngIf="!loginForm.controls.mobileno.valid && (loginForm.controls.mobileno.dirty || submitAttempt)">
+                <p text-left text-wrap class="error">Please enter the mobileno</p>
               </div>
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-mail"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" formControlName="password" >
+              </div>
+              <div class="noborder" no-lines
+                *ngIf="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)">
+              </div>
+            </form>
             <div class="form-group text-left mt-2">
               <div class="checkbox checkbox-primary d-inline">
                 <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
                 <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
               </div>
             </div>
-            <a [routerLink]="['/admin/charts/apex']" class="f-w-400"><button class="btn btn-block btn-primary mb-4">Signin</button></a>
-            <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['admin/auth/reset-password']" class="f-w-400">Reset</a></p>
+            <a class="f-w-400"><button class="btn btn-block btn-primary mb-4" (click)="login()">Signin</button></a>
+            <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/admin/auth/reset-password']" class="f-w-400">Reset</a></p>
             <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/admin/auth/signup']" class="f-w-400">Signup</a></p>
           </div>
         </div>

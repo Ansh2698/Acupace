@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './theme/shared/shared.module';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent } from './theme/layout/auth/auth.component';
@@ -28,6 +28,9 @@ import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-ele
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+
+
+//import { MessagesComponent } from './demo/pages/messages/messages.component';
 //import { TestingComponent } from './demo/pages/testing/testing.component';
 //import { TestingModule } from './testing/testing.module';
 
@@ -50,6 +53,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     ConfigurationComponent,
     ToggleFullScreenDirective,
     BaseComponent,
+    //MessagesComponent,
     //TestingComponent,
   ],
   imports: [
@@ -61,7 +65,8 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    HttpClientModule
     //NavBarModule,
 
     //TestingModule

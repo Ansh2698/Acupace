@@ -3,8 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+      path: '',
+      children: [
+      {
       path:'create',
       loadChildren: () => import('./create-meeting/create-meeting.module').then(module => module.CreateMeetingModule)
+      },
+
+      ]
   }
 ];
 

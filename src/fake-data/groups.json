@@ -1,0 +1,51 @@
+{
+  "grouptracking": [
+    {
+      "g_id": "12312",
+      "g_name": "12312",
+      "g_type": "12312",
+      "g_icon": "12312",
+      "g_description": "12312",
+      "g_mdata": "12312",
+      "id": 3
+    },
+    {
+      "g_id": "random",
+      "g_name": "random",
+      "g_type": "random",
+      "g_icon": "random",
+      "g_description": "random",
+      "g_mdata": "random",
+      "id": 4
+    }
+  ],
+  "usertracking": [
+    {
+      "u_id": "123",
+      "u_name": "avengers",
+      "u_avatar": "public",
+      "u_link": "err",
+      "u_role": "nothoing",
+      "u_mdata": "cant sat",
+      "id": 1
+    },
+    {
+      "u_id": "126",
+      "u_name": "man",
+      "u_avatar": "public",
+      "u_link": "err",
+      "u_role": "nothoing",
+      "u_mdata": "cant sat",
+      "id": 2
+    },
+    {
+      "u_id": "123",
+      "u_name": "manvendraa",
+      "u_avatar": "none",
+      "u_link": "",
+      "u_role": "specific",
+      "u_mdata": "none",
+      "id": 3
+    }
+  ]
+}
