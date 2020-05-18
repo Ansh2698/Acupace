@@ -119,8 +119,9 @@ export class WebServiceService {
         });
     });
   }
-
-
+  public Logout_user(){
+    localStorage.removeItem("currentUser");
+  }
   public UserRegister(bodystring) {
 
     // this.datafetch();

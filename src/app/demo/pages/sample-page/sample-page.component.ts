@@ -14,8 +14,7 @@ export class SamplePageComponent{
   remoteCalls: string[] = [];
   private client: AgoraClient;
   private localStream: Stream;
-  private uid: number;
-
+  private uid: number
   constructor(private ngxAgoraService: NgxAgoraService) {
     this.uid = Math.floor(Math.random() * 100);
   }

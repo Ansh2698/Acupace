@@ -21,6 +21,7 @@ export class AuthSigninComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.webservice.Logout_user();
   }
   login() {
     this.submitAttempt = true;
