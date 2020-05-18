@@ -57,11 +57,23 @@
                         <div class="input-group mb-3">
                           <input type="email" class="form-control" placeholder="Please Enter the attendee_email" formControlName="attendee_email">
                         </div>
+                        <div class="noborder" no-lines
+                          *ngIf="!inviteForm.controls.attendee_email.valid && (inviteForm.controls.attendee_email.dirty || submitAttempt)">
+                          <p text-left text-wrap class="error">Please enter the Valid Email</p>
+                        </div>
                         <div class="input-group mb-3">
                           <input type="datetime-local" class="form-control" placeholder="Link to the Room" formControlName="host_meeting_start_time">
                         </div>
+                        <div class="noborder" no-lines
+                          *ngIf="!inviteForm.controls.host_meeting_start_time && (inviteForm.controls.host_meeting_start_time.dirty || submitAttempt)">
+                          <p text-left text-wrap class="error">Please enter the Start Time of the Meeting</p>
+                        </div>
                         <div class="input-group mb-3">
                           <input type="datetime-local" class="form-control" placeholder="Link to the Room" formControlName="host_meeting_end_time">
+                        </div>
+                        <div class="noborder" no-lines
+                          *ngIf="!inviteForm.controls.host_meeting_end_time && (inviteForm.controls.host_meeting_end_time.dirty || submitAttempt)">
+                          <p text-left text-wrap class="error">Please enter the End Time of the Meeting</p>
                         </div>
                       </form>
                       <button type="button" class="btn btn-primary btn-lg" (click)="Invite()">Invite</button>

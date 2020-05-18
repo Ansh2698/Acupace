@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "styles": [
+     "node_modules/sweetalert2/src/sweetalert2.scss"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.1.2",
@@ -38,6 +41,7 @@
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
     "screenfull": "^4.2.0",
+    "sweetalert2": "^9.10.13",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
