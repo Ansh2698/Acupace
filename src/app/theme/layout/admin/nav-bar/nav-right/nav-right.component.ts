@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
-
+import {WebServiceService} from '../../../../../providers/web-service/web-service.service'
 @Component({
   selector: 'app-nav-right',
   templateUrl: './nav-right.component.html',
@@ -13,8 +13,8 @@ export class NavRightComponent implements OnInit {
   user_email: any;
   mobile: any;
   userId: any;
-  constructor() { }
-  ngOnInit() { 
+  constructor(private webservice:WebServiceService) { }
+  ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
       this.userId = JSON.parse(localStorage.getItem("userDetails")).result.ID;
       this.name = JSON.parse(localStorage.getItem("userDetails")).result.name;
@@ -23,4 +23,8 @@ export class NavRightComponent implements OnInit {
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
     }
   }
+  Logout(){
+    this.webservice.Logout_user();
+  }
+
 }
