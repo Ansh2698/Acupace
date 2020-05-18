@@ -108,6 +108,7 @@ export class WebServiceService {
         .subscribe(data => {
           console.log('login data', JSON.stringify(data));
           this.data = data;
+          localStorage.setItem("currentUser",JSON.stringify(data));
           resolve(this.data);
           // this.loader.dismissAll();
         }, (err) => {

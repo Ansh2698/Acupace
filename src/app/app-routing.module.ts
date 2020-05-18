@@ -3,16 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
 import { BaseComponent } from './theme/layout/base/base.component';
-
+import {AuthGuardService} from './auth/auth-guard.service'
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate:[AuthGuardService],
     children: [
       {
         path: '',
         redirectTo: 'charts/apex',
-        pathMatch: 'full'
+        pathMatch: 'full',
+
       },
       {
         path: 'dashboard',

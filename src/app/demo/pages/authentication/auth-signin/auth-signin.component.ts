@@ -38,7 +38,6 @@ export class AuthSigninComponent implements OnInit {
           console.log('login res -> ', response['result']);
 
           localStorage.setItem("userDetails", data);
-
           if (response[0] != 'No Record') {
             this.router.navigate(['/admin/charts/apex']);
           } else {
