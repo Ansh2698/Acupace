@@ -119,6 +119,7 @@ export class WebServiceService {
         });
     });
   }
+  // Logout the User
   public Logout_user(){
     localStorage.removeItem("currentUser");
   }

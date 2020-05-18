@@ -20,6 +20,7 @@ import { ConfigurationComponent } from './theme/layout/admin/configuration/confi
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
 import { AuthGuardService} from './auth/auth-guard.service';
+import {AuthRedirectService} from './auth/auth-redirect.service';
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
@@ -65,7 +66,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
 
     //TestingModule
   ],
-  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule,AuthGuardService],
+  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule,AuthGuardService,AuthRedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

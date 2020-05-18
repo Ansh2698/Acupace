@@ -13,7 +13,7 @@
           <thead>
           <tr>
             <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="https://i.redd.it/i8t6f16vdd421.jpg" alt="profile"></th>
-            <th><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">USERNAME</button></th>
+            <th><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">{{name}}</button></th>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
             
           </tr>
@@ -22,13 +22,13 @@
           <tr>
             
             <td><b>Personal Meeting ID</b></td>
-            <td>1101152</td>
+            <td>{{userId}}</td>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
             
             <td><b>Sign-In Email</b></td>
-            <td>user@gmail.com</td>
+            <td>{{user_email}}</td>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
@@ -60,7 +60,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Update Info</button>
     </app-card>
-    <a [routerLink]="['/admin/auth/signin']"><button type="submit" class="btn btn-danger">Sign Out </button></a>
+    <a [routerLink]="['/admin/auth/signin']"><button type="submit" class="btn btn-danger">Sign Out</button></a>
   </div>
 
 

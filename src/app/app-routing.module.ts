@@ -4,6 +4,7 @@ import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {AuthGuardService} from './auth/auth-guard.service'
+import {AuthRedirectService} from './auth/auth-redirect.service'
 const routes: Routes = [
   {
     path: 'admin',
@@ -57,6 +58,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AuthComponent,
+    canActivate:[AuthRedirectService],
     children: [
       {
         path: 'auth',
