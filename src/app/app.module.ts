@@ -24,11 +24,15 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
+//import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
-
+/* users and groups service added*/
+import { GroupsService } from './providers/groups/groups.service';
+import { UsersService } from './providers/users/users.service';
+import { User } from './providers/users/users';
+import { Group } from './providers/groups/groups';
 
 //import { MessagesComponent } from './demo/pages/messages/messages.component';
 //import { TestingComponent } from './demo/pages/testing/testing.component';
@@ -72,7 +76,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
 
     //TestingModule
   ],
-  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule],
+  providers: [NavigationItem,WebServiceService,DeviceDetectorModule,GroupsService,UsersService,User,Group],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
