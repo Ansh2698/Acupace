@@ -10,7 +10,7 @@
     "e2e": "ng e2e"
   },
   "styles": [
-     "node_modules/sweetalert2/src/sweetalert2.scss"
+    "node_modules/sweetalert2/src/sweetalert2.scss"
   ],
   "private": true,
   "dependencies": {
@@ -28,6 +28,7 @@
     "agora-rtc-sdk": "3.0.2",
     "angular-agora-rtc": "^0.1.0",
     "angular-alert-module": "^2.0.3",
+    "angular-inline-editors": "^2.0.4",
     "apexcharts": "^3.8.0",
     "bootstrap": "^4.3.1",
     "css-animator": "^2.3.1",

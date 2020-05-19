@@ -28,6 +28,8 @@ import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-ele
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+import {InputEditorModule} from 'angular-inline-editors'; //inline editor
+import { SelectEditorModule } from 'angular-inline-editors'; //inline editor
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -61,6 +63,8 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
     NgbTabsetModule,
     NgbCarouselModule,
     HttpClientModule,
+    InputEditorModule.forRoot(),
+    SelectEditorModule.forRoot(),
     DeviceDetectorModule.forRoot()
     //NavBarModule,
 

@@ -6,11 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+
   name: any;
   profile_pic: any;
   user_email: any;
   mobile: any;
   userId: any;
+  pincode: any;
+  address: any;
   constructor() { }
 
   ngOnInit() {
@@ -20,7 +23,11 @@ export class ProfileComponent implements OnInit {
       this.user_email = JSON.parse(localStorage.getItem("userDetails")).result.user_email;
       this.mobile = JSON.parse(localStorage.getItem("userDetails")).result.mobileno;
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
+      this.pincode = JSON.parse(localStorage.getItem("userDetails")).result.pincode;
+      this.address = JSON.parse(localStorage.getItem("userDetails")).result.address;
     }
   }
+
+  
 
 }

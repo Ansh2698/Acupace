@@ -13,6 +13,8 @@ export class NavRightComponent implements OnInit {
   user_email: any;
   mobile: any;
   userId: any;
+  Notifications: any;
+  timerid:any;
   constructor(private webservice:WebServiceService) { }
   ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
@@ -22,9 +24,25 @@ export class NavRightComponent implements OnInit {
       this.mobile = JSON.parse(localStorage.getItem("userDetails")).result.mobileno;
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
     }
+    this.InvitationList();
+    this.timerid=setInterval(()=>this.InvitationList(),6*60*1000);
+  }
+  ngOnDestroy() { 
+    clearInterval(this.timerid);
   }
   Logout(){
     this.webservice.Logout_user();
   }
-
+  InvitationList(){
+    let bodystring = {
+      "attendee_email": this.user_email
+    };
+    this.webservice.NotificationList(bodystring)
+      .then(response => {
+        this.Notifications = response;
+        this.Notifications=this.Notifications.result;
+      }, (err) => {
+        console.log("Error" + err);
+      });
+  }
 }
