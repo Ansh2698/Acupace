@@ -187,35 +187,37 @@ export class WebServiceService {
     });
   }
 
-//   public NotificationList(bodystring) {
+  public NotificationList(bodystring) {
 
-//     this.datafetch();
-//     // this.options = new RequestOptions({ headers: headers });    
+    // this.datafetch();
+    // this.options = new RequestOptions({ headers: headers });    
 
-//     return new Promise(resolve => {
-//       this.http.post(this.apiUrlv1 + 'notification.php', bodystring, this.headers)
-//         //  .map(res => res.json()) 
-//         .subscribe(data => {
-//           this.data = data;
-//           resolve(this.data);
-//           this.loader.dismissAll();
-//         }, (err) => {
-//           console.log(err);
-//           this.loader.dismissAll();
-//           if (400) {
-//             resolve(err);
-//             this.showAlert("Ooops!! Some problem is there.");
-//             this.loader.dismissAll();
-//           }
-//           else {
-//             this.showAlert("Ooops!! Some problem is there.");
-//             this.loader.dismissAll();
-//           }
-//         });
+    return new Promise(resolve => {
+      this.http.post(this.apiUrlv1 + 'invitation_notificationlist.php', bodystring, this.headers)
+        //  .map(res => res.json()) 
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          // this.loader.dismissAll();
+        }, (err) => {
+          console.log(err);
+          // this.loader.dismissAll();
+          if (400) {
+            resolve(err);
+            console.log(err);
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+          else {
+            console.log("OOps! some problem is there");
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+        });
 
-//     });
+    });
 
-//   }
+  }
 
 
 //   public SendOTP(bodystring) {
