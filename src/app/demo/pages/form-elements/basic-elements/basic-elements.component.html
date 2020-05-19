@@ -13,30 +13,20 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody *ngFor="let users of UserList">
+        <tbody *ngFor="let user of usersList">
           <tr class="active-row">
-            <td></td>
-            <td>{{users.u_name}}</td>
-            <td>{{users.u_id}}</td>
-            <td></td>
-            <td>{{users.u_role}}</td>
-            <td><div class="btn-group mb-2 mr-2" ngbDropdown [placement]="'bottom-left'">
-        <button class="btn btn-primary" ngbDropdownToggle type="button">Action</button>
-        <div ngbDropdownMenu>
-          <a class="dropdown-item" href="javascript:">Call</a>
-          <a class="dropdown-item" href="javascript:">Send Invite link</a>
-          <a class="dropdown-item" href="javascript:">Invite to group</a>
-        </div>
-      </div></td>
+            <td><img src="{{user.images[0]}}"></td>
+            <td>{{user.Name}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.date}}</td>
+            <td>{{user.task}}</td>
+            <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
           </tr>
 
         </tbody>
       </table>
     </div>
-    <div class="card-body text-center"><a [routerLink]="['/admin/forms/create']"><button type="button" class="btn btn-primary btn-lg">Create
-        User</button></a></div>
-
-    
-        
+    <a [routerLink]="['/admin/forms/create']"><button type="button" class="btn btn-primary btn-lg">Create
+        User</button></a>
   </app-card>
 </div>

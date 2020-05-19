@@ -1,4 +1,3 @@
-/*
 import {Injectable} from '@angular/core';
 export interface UserList{
     id:Number;
@@ -41,4 +40,3 @@ export class UserList{
         return UserLists;
     }
 }
-*/

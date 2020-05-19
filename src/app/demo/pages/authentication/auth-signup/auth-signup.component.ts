@@ -84,7 +84,6 @@ export class AuthSignupComponent implements OnInit {
   sponsor_mobileno: any;
   customer_mobileno: any;
   registeredBy: any;
-
   constructor(
     // public navCtrl: NavController,
     // private alertCtrl: AlertController, public events: Events,
@@ -93,22 +92,17 @@ export class AuthSignupComponent implements OnInit {
      private webservice: WebServiceService,// private geolocation: Geolocation
   ) {
     console.log('ionViewDidLoad RegistrationPage');
-
     // this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 10000, enableHighAccuracy: true }).then((resp) => {
-
     //   let location = new LatLng(resp.coords.latitude, resp.coords.longitude);
     //   console.log('location' + JSON.stringify(location));
     //   this.lat = location.lat;
     //   this.long = location.lng;
     // });
-
      this.registerForm = this.formBuilder.group({
        name: ['', Validators.compose([Validators.required])],
        email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required])],
        mobile: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*'), Validators.required])]
     });
-
-
     // if (localStorage.getItem("customerMobileNo") != '') {
     //   this.customer_mobileno = localStorage.getItem("customerMobileNo");
     //   this.sponsor_name = localStorage.getItem("loggedUsername");
@@ -120,13 +114,9 @@ export class AuthSignupComponent implements OnInit {
     //   this.sponsor_user_id = '';
     //   this.sponsor_name = '';
     // }
-
   }
-
   // ionViewDidLoad() { }
-
   signUp() {
-
     this.submitAttempt = true;
       let bodystring = {
         "name": this.registerForm.get('name').value,
@@ -137,7 +127,6 @@ export class AuthSignupComponent implements OnInit {
         "device_id": '',//localStorage.getItem("deviceid"),
         "device_details": '',//localStorage.getItem("devicedetails"),
       };
-
       this.webservice.UserRegister(bodystring)
         .then(response => {
           let data = JSON.stringify(response);
@@ -148,14 +137,11 @@ export class AuthSignupComponent implements OnInit {
           console.log("Error" + err);
         });
   }
-
   // login() {
   //   this.navCtrl.setRoot(LoginPage);
   // }
-
   // ionViewDidEnter() { }
   ngOnInit() {
   }
 }
 */
-

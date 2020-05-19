@@ -5,12 +5,10 @@ p {
 }
 
 .video-container{
-  
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  
 }
 
 .agora_local{
@@ -25,7 +23,6 @@ p {
 #agora_local{
   height: 500px;
   width: 750px;
-  
 }
 
 .agora_remote{
@@ -36,7 +33,6 @@ p {
   position: relative;
   top: 20px;
   left: 80%;
-  
 }
 
 .video-buttons{
@@ -62,4 +58,7 @@ p {
 
 .mic{
   color: white;
+}
+#agora_local > div{
+  border-radius: 10px;
 }

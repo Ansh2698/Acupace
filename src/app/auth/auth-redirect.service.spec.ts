@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GroupsService } from './groups.service';
+import { AuthRedirectService } from './auth-redirect.service';
 
-describe('GroupsService', () => {
+describe('AuthRedirectService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GroupsService = TestBed.get(GroupsService);
+    const service: AuthRedirectService = TestBed.get(AuthRedirectService);
     expect(service).toBeTruthy();
   });
 });

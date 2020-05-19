@@ -13,85 +13,7 @@
           <thead>
           <tr>
             <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="https://i.redd.it/i8t6f16vdd421.jpg" alt="profile"></th>
-            <th *ngFor="let person of personList; let id = index">
-              
-              <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">
-                <button type="button" class="btn btn-dark" ngbTooltip="btn-dark">{{person.name}}</button>
-              </span>
-            </th>
-            
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            
-            <td><b>Personal Meeting ID</b></td>
-            <td *ngFor="let person of personList; let id = index">
-              <span contenteditable="true" (keyup)="changeValue(id, 'ID', $event)" (blur)="updateList(id, 'ID', $event)">{{person.ID}}</span>
-            </td>
-            
-          </tr>
-          <tr>
-            
-            <td><b>Sign-In Email</b></td>
-            <td *ngFor="let person of personList; let id = index">
-              <span contenteditable="true" (keyup)="changeValue(id, 'companyMail', $event)" (blur)="updateList(id, 'companyMail', $event)">{{person.companyMail}}</span>
-            </td>
-          </tr>
-          <tr>
-            
-            <td><b>User Type</b></td>
-            <td *ngFor="let person of personList; let id = index">
-              <span contenteditable="true" (keyup)="changeValue(id, 'Type', $event)" (blur)="updateList(id, 'Type', $event)">{{person.Type}}</span>
-            </td>
-          </tr>
-          <tr>
-            
-            <td><b>Capacity</b></td>
-            <td>Meeting 100</td>
-            <td></td>
-          </tr>
-          <tr>
-            
-            <td><b>Language</b></td>
-            <td *ngFor="let person of personList; let id = index">
-              <span contenteditable="true" (keyup)="changeValue(id, 'Language', $event)" (blur)="updateList(id, 'Language', $event)">{{person.Language}}</span>
-            </td>
-          </tr>
-          <tr>
-            
-            <td><b>Host key</b></td>
-            <td>******</td>
-            <td></td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      <button type="submit" class="btn btn-primary">Update Info</button>
-    </app-card>
-    <a [routerLink]="['/admin/auth/signin']"><button type="submit" class="btn btn-danger">Sign Out </button></a>
-  </div>
-
-
- </div>
- </div>
-
-
-
-<!--
-<div class="row">
-  <div class="col-sm-12">
-<span></span>
-
- 
- <div class="col-xl-12">
-    <app-card cardTitle="Personal Info" blockClass="table-border-style">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="https://i.redd.it/i8t6f16vdd421.jpg" alt="profile"></th>
-            <th><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">USERNAME</button></th>
+            <th><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">{{name}}</button></th>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
             
           </tr>
@@ -100,13 +22,13 @@
           <tr>
             
             <td><b>Personal Meeting ID</b></td>
-            <td>1101152</td>
+            <td>{{userId}}</td>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
             
             <td><b>Sign-In Email</b></td>
-            <td>user@gmail.com</td>
+            <td>{{user_email}}</td>
             <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
@@ -138,10 +60,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Update Info</button>
     </app-card>
-    <a [routerLink]="['/admin/auth/signin']"><button type="submit" class="btn btn-danger">Sign Out </button></a>
+    <a [routerLink]="['/admin/auth/signin']"><button type="submit" class="btn btn-danger">Sign Out</button></a>
   </div>
 
 
  </div>
  </div>
--->

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './theme/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,22 +19,15 @@ import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-ri
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
-
+import { AuthGuardService} from './auth/auth-guard.service';
+import {AuthRedirectService} from './auth/auth-redirect.service';
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-//import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
+import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
-/* users and groups service added*/
-import { GroupsService } from './providers/groups/groups.service';
-import { UsersService } from './providers/users/users.service';
-import { User } from './providers/users/users';
-import { Group } from './providers/groups/groups';
-
-//import { MessagesComponent } from './demo/pages/messages/messages.component';
-//import { TestingComponent } from './demo/pages/testing/testing.component';
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -57,8 +49,6 @@ import { Group } from './providers/groups/groups';
     ConfigurationComponent,
     ToggleFullScreenDirective,
     BaseComponent,
-    //MessagesComponent,
-    //TestingComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +66,7 @@ import { Group } from './providers/groups/groups';
 
     //TestingModule
   ],
-  providers: [NavigationItem,WebServiceService,DeviceDetectorModule,GroupsService,UsersService,User,Group],
+  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule,AuthGuardService,AuthRedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,66 +1,3 @@
-
-<!--
-<div class="container wrapper">
-    <div class="row">
-
-       
-        <div class="col-md-12">
-            <div class="inner">
-                <h3>My Issues</h3>
-                <table class="table table-bordered">
-        <thead>
-       <tr>
-      <th>Icon</th>
-      <th>Name</th>
-      <th>GUID</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Created By</th>
-      <th>Created at</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-                    <tbody>
-                        <tr *ngFor="let issues of IssuesList">
-                            <th scope="row">{{issues.g_icon}}</th>
-                            <td>{{issues.g_name}}</td>
-                            <td>{{issues.g_id}}</td>
-                            <td>{{issues.g_type}}</td>
-                            <td>{{issues.g_description}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm move-right">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm" >Remove</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card-body text-center"><a [routerLink]="['/admin/forms/create-group']"><button type="button" class="btn btn-primary btn-lg">Create Group</button></a></div>
-
-    </div>
-</div>
--->
-
-<!--
-<div class="auth-wrapper maintenance">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="text-center">
-          <img src="assets/images/maintenance/404.png" alt="" class="img-fluid">
-          <h5 class="text-muted my-4">Oops! Page not found!</h5>
-          <button class="btn waves-effect waves-light btn-primary mb-4"><i class="feather icon-refresh-ccw mr-2"></i>Reload</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
-
-
-
 <div class="col-12">
   <app-card cardTitle="Group List" blockClass="table-border-style">
     <div class="table-responsive">
@@ -78,29 +15,42 @@
       <th>Action</th>
     </tr>
   </thead>
-        <tbody *ngFor="let issues of GroupList">
-          <tr class="active-row">
-            <td></td>
-            <td>{{issues.g_name}}</td>
-            <td>{{issues.g_id}}</td>
-            <td>{{issues.g_type}}</td>
-            <td>{{issues.g_description}}</td>
-            <td></td>
-            <td></td>
-            <td><div class="btn-group mb-2 mr-2" ngbDropdown [placement]="'bottom-left'">
-        <button class="btn btn-primary" ngbDropdownToggle type="button">Action</button>
-        <div ngbDropdownMenu>
-          <a class="dropdown-item" href="javascript:">schedule meeting</a>
-          <a class="dropdown-item" href="javascript:">Send Invite link</a>
-          <a class="dropdown-item" (click)="deleteGroup(issues)">Delete</a>
-        </div>
-      </div></td>
-          </tr>
-
+        <tbody>
+        <tr class="active-row">
+      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuRBFgBGO67Dxq9V-9vR3SsKBAhssT5hiqKsSFtK4jxuTkRxd1&usqp=CAU"></td>
+      <td>comic con</td>
+      <td>110120</td>
+      <td>public</td>
+      <td></td>
+      <td>coolboy62</td>
+      <td>Today at 1:04 PM</td>
+      <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
+    </tr>
+        <tr class="active-row">
+      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZxrQ1WYa2bUNqSiCiYYjOkoJh0aT9fLCJvAn7029weCqzHF5x&usqp=CAU"></td>
+      <td>acupace</td>
+      <td>1101655</td>
+      <td>public</td>
+      <td></td>
+      <td>coolboy62</td>
+      <td>Today at 12:04 PM</td>
+      <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
+    </tr>
+        <tr class="active-row">
+      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuRBFgBGO67Dxq9V-9vR3SsKBAhssT5hiqKsSFtK4jxuTkRxd1&usqp=CAU"></td>
+      <td>acumeet</td>
+      <td>1101658</td>
+      <td>public</td>
+      <td></td>
+      <td>coolboy62</td>
+      <td>Today at 11:04 AM</td>
+      <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
+    </tr>
+        
+        
         </tbody>
       </table>
     </div>
-    <div class="card-body text-center"><a [routerLink]="['/admin/forms/create-group']"><button type="button" class="btn btn-primary btn-lg">Create Group</button></a></div>
+    <a [routerLink]="['/admin/forms/create-group']"><button type="button" class="btn btn-primary btn-lg">Create Group</button></a>
   </app-card>
 </div>
-

@@ -108,6 +108,7 @@ export class WebServiceService {
         .subscribe(data => {
           console.log('login data', JSON.stringify(data));
           this.data = data;
+          localStorage.setItem("currentUser",JSON.stringify(data));
           resolve(this.data);
           // this.loader.dismissAll();
         }, (err) => {
@@ -118,8 +119,11 @@ export class WebServiceService {
         });
     });
   }
-
-
+  // Logout the User
+  public Logout_user(){
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("userDetails");
+  }
   public UserRegister(bodystring) {
 
     // this.datafetch();
