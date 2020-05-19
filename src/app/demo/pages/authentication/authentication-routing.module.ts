@@ -20,7 +20,17 @@ const routes: Routes = [
       {
         path: 'change-password',
         loadChildren: () => import('./auth-change-password/auth-change-password.module').then(module => module.AuthChangePasswordModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule)
+      },
+      {
+        path: 'verification',
+        loadChildren: () => import('./verification/verification.module').then(module => module.VerificationModule)
       }
+      
+
     ]
   }
 ];

@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
-
+import { BaseComponent } from './theme/layout/base/base.component';
+import {AuthGuardService} from './auth/auth-guard.service'
+import {AuthRedirectService} from './auth/auth-redirect.service'
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: AdminComponent,
+    canActivate:[AuthGuardService],
     children: [
       {
         path: '',
-        redirectTo: 'dashboard/analytics',
-        pathMatch: 'full'
+        redirectTo: 'charts/apex',
+        pathMatch: 'full',
+
       },
       {
         path: 'dashboard',
@@ -40,12 +44,21 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
+      },
+      {
+        path:'profile',
+        loadChildren: () => import('./demo/pages/authentication/profile/profile.module').then(module => module.ProfileModule)
+      },
+      {
+        path:'meeting',
+        loadChildren: () => import('./demo/pages/meeting/meeting.module').then(module => module.MeetingModule)
       }
     ]
   },
   {
-    path: '',
+    path: 'admin',
     component: AuthComponent,
+    canActivate:[AuthRedirectService],
     children: [
       {
         path: 'auth',
@@ -56,6 +69,11 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/maintenance/maintenance.module').then(module => module.MaintenanceModule)
       }
     ]
+  },
+  {
+    path:'',
+    component:BaseComponent,
+    pathMatch: 'full'
   }
 ];
 

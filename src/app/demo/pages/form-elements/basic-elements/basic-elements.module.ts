@@ -5,6 +5,7 @@ import { BasicElementsRoutingModule } from './basic-elements-routing.module';
 import { BasicElementsComponent } from './basic-elements.component';
 import {SharedModule} from '../../../../theme/shared/shared.module';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import { UserList } from './basic-elements';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     NgbDropdownModule
   ],
+  providers:[UserList],
   declarations: [BasicElementsComponent]
 })
 export class BasicElementsModule { }

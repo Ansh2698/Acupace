@@ -9,17 +9,25 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "styles": [
+     "node_modules/sweetalert2/src/sweetalert2.scss"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.1.2",
+    "@angular/cdk": "^9.2.3",
     "@angular/common": "~8.1.2",
     "@angular/compiler": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/forms": "~8.1.2",
+    "@angular/material": "^9.2.3",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "agora-rtc-sdk": "3.0.2",
+    "angular-agora-rtc": "^0.1.0",
+    "angular-alert-module": "^2.0.3",
     "apexcharts": "^3.8.0",
     "bootstrap": "^4.3.1",
     "css-animator": "^2.3.1",
@@ -27,10 +35,13 @@
     "moment": "^2.24.0",
     "ng-click-outside": "^4.0.0",
     "ng2-validation": "^4.2.0",
+    "ngx-agora": "^2.0.1",
+    "ngx-device-detector": "^1.4.2",
     "ngx-perfect-scrollbar": "^8.0.0",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
     "screenfull": "^4.2.0",
+    "sweetalert2": "^9.10.13",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
@@ -52,7 +63,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "node-sass": "^4.12.0",
-    "protractor": "^6.0.0",
+    "protractor": "^7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
