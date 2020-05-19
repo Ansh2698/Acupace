@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 import {WebServiceService} from '../../../../../providers/web-service/web-service.service';
 import {Router} from '@angular/router';
+import * as moment from 'moment';
 @Component({
   selector: 'app-nav-right',
   templateUrl: './nav-right.component.html',
@@ -16,6 +17,7 @@ export class NavRightComponent implements OnInit {
   userId: any;
   Notifications: any;
   timerid:any;
+  current_time:any;
   constructor(private webservice:WebServiceService, private router:Router) { }
   ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
@@ -26,7 +28,7 @@ export class NavRightComponent implements OnInit {
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
     }
     this.InvitationList();
-    this.timerid=setInterval(()=>this.InvitationList(),6*60*1000);
+    this.timerid=setInterval(()=>this.InvitationList(),3000);
   }
   ngOnDestroy() { 
     clearInterval(this.timerid);
@@ -47,6 +49,12 @@ export class NavRightComponent implements OnInit {
       });
   }
   Join_Meeting(Notification:any){
-    this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id} });
+    this.current_time=moment();
+    if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time)){
+      this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id} });
+    }
+    else{
+      console.log("Either Meeting Time is More or ending Time is Less");
+    }
   }
 }
