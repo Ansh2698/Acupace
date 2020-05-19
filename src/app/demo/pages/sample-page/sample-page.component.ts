@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-sample-page',
   templateUrl: './sample-page.component.html',
@@ -15,10 +16,12 @@ export class SamplePageComponent{
   private client: AgoraClient;
   private localStream: Stream;
   private uid: number
-  constructor(private ngxAgoraService: NgxAgoraService) {
-    this.uid = Math.floor(Math.random() * 100);
+  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute) {
+    this.uid = this.route.snapshot.params.id;
   }
-
+  ngOnInit(){
+    this.startCall();
+  }
   startCall(){
     this.activeCall=true;
     this.client = this.ngxAgoraService.createClient({ mode: 'rtc', codec: 'h264' });

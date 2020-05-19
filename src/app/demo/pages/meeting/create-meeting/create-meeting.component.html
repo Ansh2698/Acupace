@@ -76,13 +76,24 @@
                           <p text-left text-wrap class="error">Please enter the End Time of the Meeting</p>
                         </div>
                       </form>
-                      <button type="button" class="btn btn-primary btn-lg" (click)="Invite()">Invite</button>
+                      <button type="button" class="btn btn-primary btn-lg" (click)="Invite();sentInvitation.show();modalDefault.hide()">Invite</button>
                     </div>
                   </div>
                   <div class="app-modal-footer">
                   </div>
                 </div>
               </app-ui-modal>
+              <!--sent ivitation dialog box -->
+              <app-ui-modal #sentInvitation dialogClass="modal-dialog-centered">
+                <div class="app-modal-body">
+                  <div class="app-modal-header">
+                    <h4 class="mb-3 f-w-400">invitation sent successfully!!</h4>
+                    
+                  </div>
+                </div>
+              </app-ui-modal>
+
+
             </div>
           </div>
         </ng-template>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
-import {WebServiceService} from '../../../../../providers/web-service/web-service.service'
+import {WebServiceService} from '../../../../../providers/web-service/web-service.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-nav-right',
   templateUrl: './nav-right.component.html',
@@ -15,7 +16,7 @@ export class NavRightComponent implements OnInit {
   userId: any;
   Notifications: any;
   timerid:any;
-  constructor(private webservice:WebServiceService) { }
+  constructor(private webservice:WebServiceService, private router:Router) { }
   ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
       this.userId = JSON.parse(localStorage.getItem("userDetails")).result.ID;
@@ -44,5 +45,8 @@ export class NavRightComponent implements OnInit {
       }, (err) => {
         console.log("Error" + err);
       });
+  }
+  Join_Meeting(Notification:any){
+    this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id} });
   }
 }
