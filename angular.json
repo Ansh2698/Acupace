@@ -29,6 +29,7 @@
               "src/fake-data"
             ],
             "styles": [
+              "node_modules/sweetalert2/src/sweetalert2.scss",
               "src/styles.scss"
             ],
             "scripts": [

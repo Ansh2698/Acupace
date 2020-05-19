@@ -3,6 +3,7 @@ import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 import {WebServiceService} from '../../../../../providers/web-service/web-service.service';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-nav-right',
   templateUrl: './nav-right.component.html',
@@ -54,7 +55,11 @@ export class NavRightComponent implements OnInit {
       this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id} });
     }
     else{
-      console.log("Either Meeting Time is More or ending Time is Less");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Either the Meeting Ended or You tried to enter before the Schedule',
+      })
     }
   }
 }
