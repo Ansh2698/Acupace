@@ -22,9 +22,8 @@
             <td>{{user.id}}</td>
             <td>{{user.host_meeting_end_time}}</td>
             <td>{{user.role}}</td>
-            <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
+            <td [ngStyle]="{'cursor':'pointer'}"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary">Enter</span></a></td>
           </tr>
-
         </tbody>
       </table>
     </div>
