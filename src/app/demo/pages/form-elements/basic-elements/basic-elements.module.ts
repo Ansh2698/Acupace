@@ -6,6 +6,7 @@ import { BasicElementsComponent } from './basic-elements.component';
 import {SharedModule} from '../../../../theme/shared/shared.module';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserList } from './basic-elements';
+import {MeetingLists} from '../../../../app-meeting_list';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { UserList } from './basic-elements';
     SharedModule,
     NgbDropdownModule
   ],
-  providers:[UserList],
+  providers:[UserList,MeetingLists],
   declarations: [BasicElementsComponent]
 })
 export class BasicElementsModule { }

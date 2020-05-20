@@ -7,19 +7,21 @@
           <tr>
             <th>Avatar</th>
             <th>Name</th>
+            <th>Email Id</th>
             <th>UID</th>
             <th>Created At</th>
             <th>Role</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody *ngFor="let user of usersList">
+        <tbody *ngFor="let user of Notifications">
           <tr class="active-row">
-            <td><img src="{{user.images[0]}}"></td>
-            <td>{{user.Name}}</td>
+            <td><img src="assets/images/user/avatar-1.jpg"></td>
+            <td>{{user.host_name}}</td>
+            <td>{{user.host_email}}</td>
             <td>{{user.id}}</td>
-            <td>{{user.date}}</td>
-            <td>{{user.task}}</td>
+            <td>{{user.host_meeting_end_time}}</td>
+            <td>{{user.role}}</td>
             <td><a href="#"><span class="badge m-r-5 badge-pill badge-primary">Action</span></a></td>
           </tr>
 
