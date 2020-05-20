@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WebServiceService } from '../../../../providers/web-service/web-service.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-create-meeting',
   templateUrl: './create-meeting.component.html',
@@ -38,6 +39,11 @@ export class CreateMeetingComponent implements OnInit {
           let data = JSON.stringify(response);
           // this.webservice.showAlert(response);
           // this.navCtrl.setRoot(LoginPage);
+          Swal.fire({
+            icon: 'success',
+            title: 'Invitation Sent Successfully',
+            text: 'The Attendee/Host now can view the meeting status in their respective boxes',
+          })
           console.log('data' + data);
         }, (err) => {
           console.log("Error" + err);
