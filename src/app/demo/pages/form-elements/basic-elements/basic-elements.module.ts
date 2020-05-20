@@ -7,7 +7,6 @@ import {SharedModule} from '../../../../theme/shared/shared.module';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserList } from './basic-elements';
 import {MeetingLists} from '../../../../app-meeting_list';
-
 @NgModule({
   imports: [
     CommonModule,

@@ -19,7 +19,7 @@ export class BasicElementsComponent implements OnInit {
   }
   ngOnInit() {
     this.InvitationList();
-    this.timerId=setInterval(()=>{this.Notifications=this.Meetings.fetch()},300);
+    this.timerId=setInterval(()=>{this.Notifications=this.Meetings.fetch()},6000);
   }
   ngOnDestroy(){
     clearInterval(this.timerId)

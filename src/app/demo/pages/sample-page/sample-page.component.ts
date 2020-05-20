@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {WebServiceService} from '../../../providers/web-service/web-service.service'
 @Component({
   selector: 'app-sample-page',
   templateUrl: './sample-page.component.html',
@@ -16,7 +18,8 @@ export class SamplePageComponent{
   private client: AgoraClient;
   private localStream: Stream;
   private uid: number
-  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute) {
+  public Status:any;
+  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService) {
     this.uid = this.route.snapshot.params.id;
   }
   ngOnInit(){
@@ -99,6 +102,11 @@ export class SamplePageComponent{
         stream.stop();
         this.remoteCalls = this.remoteCalls.filter(call => call !== `${this.getRemoteId(stream)}`);
         console.log(`${evt.uid} left from this channel`);
+        Swal.fire(
+          'Someone Left',
+          'Person with stream id:'+`${evt.uid}`+' has left the Channel',
+          'question'
+        )
       }
     });
   }
@@ -128,15 +136,43 @@ export class SamplePageComponent{
   }
   leave(){
     if(this.activeCall){
-      this.client.leave(() => {
-        this.activeCall = false;
-        this.remoteCalls=[];
-        this.localStream.close();
-        document.getElementById('agora_local').innerHTML = "";
-        console.log("Leavel channel successfully");
-      }, (err) => {
-        console.log("Leave channel failed");
-      });
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to Join this Meeting Again!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, End the Call'
+      }).then((result) => {
+        if (result.value) {
+          this.client.leave(() => {
+            this.activeCall = false;
+            this.remoteCalls=[];
+            this.localStream.close();
+            document.getElementById('agora_local').innerHTML = "";
+            let bodystring = {
+              "id": JSON.parse(localStorage.getItem("userDetails")).result.ID,
+              "room_id":this.uid
+            };
+            this.webservice.Update_meeting(bodystring)
+              .then(response => {
+                this.Status=response;
+                console.log(this.Status);
+                this.Status=this.Status.result;
+                Swal.fire(
+                  'Meeting Ended',
+                  ''+ this.Status+'',
+                  'success'
+                )
+              }, (err) => {
+                console.log("Error" + err);
+            });
+          }, (err) => {
+            console.log("Leave channel failed");
+          });
+        }
+      })
     }
     else {
       this.ngxAgoraService.AgoraRTC.Logger.warning('Local client is not connected to channel.');
