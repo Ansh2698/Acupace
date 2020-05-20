@@ -23,7 +23,7 @@
           <li class="n-title">
             <p class="m-b-0">NEW</p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications" (click)="Join_Meeting(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:3" (click)="Join_Meeting(Notification)">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
               <div class="media-body">
@@ -55,7 +55,7 @@
           </li> -->
         </ul>
         <div class="noti-footer">
-          <a href="javascript:">show all</a>
+          <a href="admin/forms/basic">show all</a>
         </div>
       </div>
     </div>

@@ -13,14 +13,18 @@ export interface MeetingList{
     meeting_status:Number,
     meeting_date:any
 }
+const UserLists=[];
 Injectable()
 export class MeetingLists{
-    public UserLists=[];
     constructor() { }
     public Add(Notifications:any){
-        this.UserLists.push(Notifications);
+        UserLists.push(Notifications);
     }
     public fetch(){
-        return this.UserLists[0];
+        if(UserLists.length!=0){
+            console.log(UserLists[0]);
+            return UserLists[0];
+        }
+        console.log("userlist is empty")
     }
 }
