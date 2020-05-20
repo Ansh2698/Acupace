@@ -3,6 +3,7 @@ import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 import {WebServiceService} from '../../../../../providers/web-service/web-service.service';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
+import {MeetingLists} from '../../../../../app-meeting_list'
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-nav-right',
@@ -19,7 +20,7 @@ export class NavRightComponent implements OnInit {
   Notifications: any;
   timerid:any;
   current_time:any;
-  constructor(private webservice:WebServiceService, private router:Router) { }
+  constructor(private webservice:WebServiceService, private router:Router,private Meeting_list:MeetingLists) { }
   ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
       this.userId = JSON.parse(localStorage.getItem("userDetails")).result.ID;
@@ -28,26 +29,12 @@ export class NavRightComponent implements OnInit {
       this.mobile = JSON.parse(localStorage.getItem("userDetails")).result.mobileno;
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
     }
-    this.InvitationList();
-    this.timerid=setInterval(()=>this.InvitationList(),3000);
   }
   ngOnDestroy() { 
     clearInterval(this.timerid);
   }
   Logout(){
     this.webservice.Logout_user();
-  }
-  InvitationList(){
-    let bodystring = {
-      "attendee_email": this.user_email
-    };
-    this.webservice.NotificationList(bodystring)
-      .then(response => {
-        this.Notifications = response;
-        this.Notifications=this.Notifications.result;
-      }, (err) => {
-        console.log("Error" + err);
-      });
   }
   Join_Meeting(Notification:any){
     this.current_time=moment();
@@ -61,5 +48,8 @@ export class NavRightComponent implements OnInit {
         text: 'Either the Meeting Ended or You tried to enter before the Schedule',
       })
     }
+  }
+  GetNotification(){
+    this.Notifications=this.Meeting_list.fetch();
   }
 }
