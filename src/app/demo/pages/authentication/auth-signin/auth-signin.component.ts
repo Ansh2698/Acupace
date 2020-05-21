@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WebServiceService } from '../../../../providers/web-service/web-service.service';
 import { Router, ActivatedRoute, ParamMap,NavigationExtras} from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-auth-signin',
   templateUrl: './auth-signin.component.html',
@@ -40,6 +41,11 @@ export class AuthSigninComponent implements OnInit {
 
           localStorage.setItem("userDetails", data);
           if (response[0] != 'No Record') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Welcome to the Acupace Video Conferencing Website',
+              text: 'You have succesfully created you account',
+            })
             this.router.navigate(['/admin/charts/apex']);
           } else {
             console.log("Wrong Details");
