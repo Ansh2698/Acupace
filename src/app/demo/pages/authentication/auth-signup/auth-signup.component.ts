@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WebServiceService } from '../../../../providers/web-service/web-service.service';
 import { Router, ActivatedRoute, ParamMap,NavigationExtras} from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-auth-signup',
   templateUrl: './auth-signup.component.html',
@@ -49,7 +50,11 @@ export class AuthSignupComponent implements OnInit {
           let data = JSON.stringify(response);
           // this.webservice.showAlert(response);
           // this.navCtrl.setRoot(LoginPage);
-          console.log('data' + data);
+          Swal.fire({
+            icon: 'success',
+            title: 'Welcome to the Acupace Video Conferencing Website',
+            text: 'You have succesfuuly LoggedIn',
+          })
           this.router.navigate(['/admin/auth/signin']);
         }, (err) => {
           console.log("Error" + err);

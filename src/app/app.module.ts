@@ -30,6 +30,7 @@ import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {MeetingLists} from './app-meeting_list';
 import { from } from 'rxjs';
+import { FooterComponent } from './theme/layout/admin/footer/footer.component';
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -51,6 +52,7 @@ import { from } from 'rxjs';
     ConfigurationComponent,
     ToggleFullScreenDirective,
     BaseComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
