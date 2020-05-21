@@ -5,6 +5,7 @@ import {MeetingLists} from '../../../../app-meeting_list';
 import * as moment from 'moment';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 @Component({
   selector: 'app-basic-elements',
   templateUrl: './basic-elements.component.html',

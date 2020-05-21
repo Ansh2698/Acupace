@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {WebServiceService} from '../../../../providers/web-service/web-service.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   user_email: any;
   mobile: any;
   userId: any;
-  constructor() { }
+  constructor(private webservice:WebServiceService) { }
 
   ngOnInit() {
     if (localStorage.getItem("userDetails") != '' || localStorage.getItem("userDetails") != undefined) {
@@ -22,5 +22,7 @@ export class ProfileComponent implements OnInit {
       this.profile_pic = JSON.parse(localStorage.getItem("userDetails")).result.profile_pic;
     }
   }
-
+  Logout(){
+    this.webservice.Logout_user();
+  }
 }
