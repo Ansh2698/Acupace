@@ -119,6 +119,59 @@ export class WebServiceService {
         });
     });
   }
+  public Get_user_details(bodystring){
+    return new Promise(resolve => {
+
+      this.http.post(this.apiUrlv1 + 'myprofile.php', bodystring, this.headers)
+        //  .map(res => res.json())
+        .subscribe(data => {
+        //   this.loader.dismissAll();
+          this.data = data;
+          resolve(this.data);
+        }, (err) => {
+          console.log(err);
+          // this.loader.dismissAll();
+          if (400) {
+            resolve(err);
+            console.log(err);
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+          else {
+              console.log("Ooops!! Some problem is there.");
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+        });
+    });
+
+  }
+  public Update_user_details(bodystring){
+    return new Promise(resolve => {
+
+      this.http.post(this.apiUrlv1 + 'update_user.php', bodystring, this.headers)
+        //  .map(res => res.json())
+        .subscribe(data => {
+        //   this.loader.dismissAll();
+          this.data = data;
+          resolve(this.data);
+        }, (err) => {
+          console.log(err);
+          // this.loader.dismissAll();
+          if (400) {
+            resolve(err);
+            console.log(err);
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+          else {
+              console.log("Ooops!! Some problem is there.");
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+        });
+    });
+  }
   // Logout the User
   public Logout_user(){
     localStorage.removeItem("currentUser");
@@ -249,7 +302,6 @@ export class WebServiceService {
     });
 
   }
-
 
 //   public SendOTP(bodystring) {
 

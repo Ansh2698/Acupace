@@ -4,61 +4,55 @@
 <!--<h5 class="mt-5"> Username </h5>-->
 
 <span></span>
-
- 
  <div class="col-xl-12">
     <app-card cardTitle="Personal Info" blockClass="table-border-style">
       <div class="table-responsive">
+        <form [formGroup]="profileForm">
         <table class="table table-striped">
           <thead>
           <tr>
-            <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="https://i.redd.it/i8t6f16vdd421.jpg" alt="profile"></th>
-            <th><button type="button" class="btn btn-dark" ngbTooltip="btn-dark">{{name}}</button></th>
-            <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
-            
+            <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="{{profile_pic}}" alt="profile"></th>
+            <th><input type="button" class="btn btn-dark" ngbTooltip="btn-dark" *ngIf="!IsnameEnabled; else NameEdit" value="{{name}}"></th>
+            <ng-template #NameEdit><input type="text" value="{{name}}" formControlName="name"></ng-template>
+            <th><a (click)="name_edit()" [ngStyle]="{'cursor':'pointer'}"><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            
-            <td><b>Personal Meeting ID</b></td>
-            <td>{{userId}}</td>
-            <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
+            <td><b>User ID</b></td>
+            <td><input type="text" value="{{userId}}" disabled></td>
+            <th></th>
           </tr>
           <tr>
-            
             <td><b>Sign-In Email</b></td>
-            <td>{{user_email}}</td>
-            <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
+            <td><input type="email" value="{{user_email}}" disabled></td>
+            <th></th>
           </tr>
           <tr>
             
             <td><b>User Type</b></td>
-            <td>Basic</td>
-            <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
+            <td><input type="text" value="Basic" disabled></td>
+            <th></th>
           </tr>
           <tr>
-            
-            <td><b>Capacity</b></td>
-            <td>Meeting 100</td>
-            <td></td>
+            <td><b>Address</b></td>
+            <td><input type="text" value="{{address}}"disabled *ngIf="!IsaddressEnabled; else AdressEdit"></td>
+            <ng-template #AdressEdit><input type="text" value="{{address}}" formControlName="address"></ng-template>
+            <th><a (click)="address_edit()" [ngStyle]="{'cursor':'pointer'}"><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
-            
-            <td><b>Language</b></td>
-            <td>English</td>
-            <th><a href=""><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
+            <td><b>Password</b></td>
+            <td><input type="text" value="{{password}}" disabled *ngIf="!IspasswordEnabled; else PasswordEdit"></td>
+            <ng-template #PasswordEdit><input type="text" value="{{password}}"formControlName="password"></ng-template>
+            <th><a (click)="password_edit()" [ngStyle]="{'cursor':'pointer'}"><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
           </tr>
           <tr>
-            
-            <td><b>Host key</b></td>
-            <td>******</td>
-            <td></td>
           </tr>
           </tbody>
         </table>
+      </form>
       </div>
-      <button type="submit" class="btn btn-primary">Update Info</button>
+      <button type="submit" class="btn btn-primary" (click)="Update()">Update Info</button>
     </app-card>
     <a [routerLink]="['/admin/auth/signin']" (click)="Logout()"><button type="submit" class="btn btn-danger">Sign Out</button></a>
   </div>

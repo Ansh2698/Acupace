@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
     this.webservice.NotificationList(bodystring)
       .then(response => {
         this.Notifications = response;
+        console.log(this.Notifications);
         this.Notifications=this.Notifications.result;
         this.meetingList.Add(this.Notifications);
       }, (err) => {
