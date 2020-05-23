@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   userId: any;
   address:any;
   password:any;
-  IsnameEnabled:boolean=false;
   IsaddressEnabled:boolean=false;
   IspasswordEnabled:boolean=false;
   public submitLoader: boolean;
@@ -51,15 +50,6 @@ export class ProfileComponent implements OnInit {
         }, (err) => {
           console.log("Error" + err);
     });
-  }
-  name_edit(){
-    this.IsnameEnabled=!this.IsnameEnabled;
-    if(this.IsnameEnabled){
-      this.profileForm.addControl('name',new FormControl('', Validators.required));
-    }
-    else{
-      this.profileForm.removeControl('name');
-    }
   }
   address_edit(){
     this.IsaddressEnabled=!this.IsaddressEnabled;
@@ -94,9 +84,6 @@ export class ProfileComponent implements OnInit {
     if(this.IspasswordEnabled){
       user_password=this.profileForm.get('password').value;
     }
-    if(this.IsnameEnabled){
-      user_name=this.profileForm.get('name').value;
-    }
     let bodyString={
       "password":user_password,
       "address":user_address,
@@ -119,7 +106,6 @@ export class ProfileComponent implements OnInit {
           this.submitLoader=false;
           let changed_data=JSON.parse(localStorage.getItem("userDetails"));
           changed_data.result.address=user_address;
-          changed_data.result.name=user_name;
           localStorage.removeItem("userDetails");
           localStorage.setItem("userDetails",JSON.stringify(changed_data));
           console.log(data);

@@ -13,8 +13,7 @@
           <tr>
             <th><img class="hei-75 wid-75 bg-light d-inline-block mr-2 border border-secondary rounded-circle" placement="auto" ngbTooltip="rounded-circle" src="{{profile_pic}}" alt="profile"></th>
             <th><input type="button" class="btn btn-dark" ngbTooltip="btn-dark" *ngIf="!IsnameEnabled; else NameEdit" value="{{name}}"></th>
-            <ng-template #NameEdit><input type="text" value="{{name}}" formControlName="name"></ng-template>
-            <th><a (click)="name_edit()" [ngStyle]="{'cursor':'pointer'}"><span class="badge m-r-5 badge-pill badge-primary">edit</span></a></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
