@@ -31,29 +31,20 @@
               <h5 class="card-title">No Meeting !!!</h5>
               <p class="card-text">Start your first meeting</p>
               <button type="button" class="btn btn-primary" data-toggle="modal"
-                (click)="exampleModalCenter.show()">Create Meeting</button>
-              <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
-                <div class="app-modal-header">
-                  <h5 class="modal-title">Create New Room</h5>
-                  <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
-                    (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="app-modal-body">
-                  <div class="input-group mb-3">
-                    <input type="" class="form-control" placeholder="Meeting Room Name">
-                  </div>
-                  <button type="button" class="btn btn-primary" (click)="exampleModalCenter.hide()" (click)="modalDefault.show()">Create Room</button>
-                  <hr>
-                  <p class="mb-2 text-muted">If You want to join room <a [routerLink]="['admin/auth/reset-password']"
-                      class="f-w-400">Click Here</a></p>
-                </div>
-              </app-ui-modal>
+                (click)="modalDefault.show()">Create Meeting</button>
               <app-ui-modal #modalDefault dialogClass="modal-dialog-centered">
                 <div class="app-modal-body">
                   <div class="app-modal-header">
                     <h4 class="mb-3 f-w-400">Invite People to Join Your Conference Room</h4>
                     <div class="app-modal-body">
                       <form [formGroup]="inviteForm">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="Please Enter the Room name" formControlName="channel_name">
+                        </div>
+                        <div class="noborder" no-lines
+                          *ngIf="!inviteForm.controls.channel_name.valid && (inviteForm.controls.channel_name.dirty || submitAttempt)">
+                          <p text-left text-wrap class="error">Please enter the Valid Email</p>
+                        </div>
                         <div class="input-group mb-3">
                           <input type="email" class="form-control" placeholder="Please Enter the attendee_email" formControlName="attendee_email">
                         </div>

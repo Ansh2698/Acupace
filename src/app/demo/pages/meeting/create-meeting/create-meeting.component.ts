@@ -14,6 +14,7 @@ export class CreateMeetingComponent implements OnInit {
   bodystring: any;
   constructor(public formBuilder: FormBuilder, private webservice: WebServiceService) {
     this.inviteForm = this.formBuilder.group({
+      channel_name:['', Validators.compose([Validators.required])],
       attendee_email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required])],
       host_meeting_start_time: ['', Validators.compose([Validators.required])],
       host_meeting_end_time: ['', Validators.compose([Validators.required])],
@@ -29,6 +30,7 @@ export class CreateMeetingComponent implements OnInit {
         "host_name": JSON.parse(localStorage.getItem("userDetails")).result.name,
         "host_email": JSON.parse(localStorage.getItem("userDetails")).result.user_email,
         "role": "host",
+        "channel_name":this.inviteForm.get('channel_name').value,
         "host_device_details": localStorage.getItem("devicedetails"),
         "host_meeting_start_time": this.inviteForm.get('host_meeting_start_time').value,
         "host_meeting_end_time": this.inviteForm.get('host_meeting_end_time').value,

@@ -18,6 +18,7 @@ export class NavRightComponent implements OnInit {
   mobile: any;
   userId: any;
   Notifications: any;
+  Notifications_host:any;
   timerid:any;
   current_time:any;
   constructor(private webservice:WebServiceService, private router:Router,private Meeting_list:MeetingLists) { }
@@ -39,7 +40,7 @@ export class NavRightComponent implements OnInit {
   Join_Meeting(Notification:any){
     this.current_time=moment();
     if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time)){
-      this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id} });
+      this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id,channel:Notification.channel_name} });
     }
     else{
       Swal.fire({
@@ -51,5 +52,6 @@ export class NavRightComponent implements OnInit {
   }
   GetNotification(){
     this.Notifications=this.Meeting_list.fetch();
+    this.Notifications_host=this.Meeting_list.fetch_host();
   }
 }

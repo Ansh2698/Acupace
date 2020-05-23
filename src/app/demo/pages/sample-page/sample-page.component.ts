@@ -14,16 +14,27 @@ export class SamplePageComponent{
   videoEnabled: boolean = true;
   title = 'angular-video';
   localCallId = 'agora_local';
+  channel_name:any;
   remoteCalls: string[] = [];
   private client: AgoraClient;
   private localStream: Stream;
-  private uid: number
+  private uid: any
   public Status:any;
+  public sub:any;
   constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService) {
-    this.uid = this.route.snapshot.params.id;
   }
   ngOnInit(){
+    this.sub = this.route
+    .queryParams
+    .subscribe(params => {
+      // Defaults to 0 if no query param provided.
+      this.uid =params['id'];
+      this.channel_name=params['channel'];
+    });
     this.startCall();
+  }
+  ngOnDestroy(){
+    this.sub.unsubscribe();
   }
   startCall(){
     this.activeCall=true;
@@ -41,7 +52,7 @@ export class SamplePageComponent{
    * Attempts to connect to an online chat room where users can host and receive A/V streams.
    */
   join(onSuccess?: (uid: number | string) => void, onFailure?: (error: Error) => void): void {
-    this.client.join(null, '73907', this.uid, onSuccess, onFailure);
+    this.client.join(null, this.channel_name, this.uid, onSuccess, onFailure);
   }
 
   /**

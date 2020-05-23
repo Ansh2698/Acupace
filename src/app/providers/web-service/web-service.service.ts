@@ -271,6 +271,37 @@ export class WebServiceService {
     });
 
   }
+  public NotificationList_Host(bodystring) {
+
+    // this.datafetch();
+    // this.options = new RequestOptions({ headers: headers });    
+
+    return new Promise(resolve => {
+      this.http.post(this.apiUrlv1 + 'host_invitation_notificationlist.php', bodystring, this.headers)
+        //  .map(res => res.json()) 
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          // this.loader.dismissAll();
+        }, (err) => {
+          console.log(err);
+          // this.loader.dismissAll();
+          if (400) {
+            resolve(err);
+            console.log(err);
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+          else {
+            console.log("OOps! some problem is there");
+            // this.showAlert("Ooops!! Some problem is there.");
+            // this.loader.dismissAll();
+          }
+        });
+
+    });
+
+  }
   public Update_meeting(bodystring) {
 
     // this.datafetch();

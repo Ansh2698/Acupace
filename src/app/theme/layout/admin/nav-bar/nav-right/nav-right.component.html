@@ -19,11 +19,11 @@
             <a href="javascript:">clear all</a>
           </div>
         </div>
-        <ul class="noti-body">
+        <ul class="noti-body" *ngIf="Notifications_host!='No Record Found'">
           <li class="n-title">
-            <p class="m-b-0">NEW</p>
+            <p class="m-b-0">As Host</p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:3" (click)="Join_Meeting(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications_host | slice:0:2" (click)="Join_Meeting(Notification)">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
               <div class="media-body">
@@ -32,27 +32,20 @@
               </div>
             </div>
           </li>
-          <!-- <li class="n-title">
-            <p class="m-b-0">EARLIER</p>
+        </ul>
+        <ul class="noti-body" *ngIf="Notifications!='No Record Found'">
+          <li class="n-title">
+            <p class="m-b-0">As Attendee</p>
           </li>
-          <li class="notification">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:2" (click)="Join_Meeting(Notification)">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
               <div class="media-body">
-                <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
-                <p>Prchace New Theme and make payment</p>
+                <p><strong>{{Notification.host_name}}</strong><span class="n-time text-muted">Meeting Start-time<i class="icon feather icon-clock m-r-10"></i>{{Notification.host_meeting_start_time}}</span></p>
+                <p>{{Notification.host_email}}</p>
               </div>
             </div>
           </li>
-          <li class="notification">
-            <div class="media">
-              <img class="img-radius" src="assets/images/user/avatar-3.jpg" alt="Generic placeholder image">
-              <div class="media-body">
-                <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
-                <p>currently login</p>
-              </div>
-            </div>
-          </li> -->
         </ul>
         <div class="noti-footer">
           <a [routerLink]="['/admin/forms/basic']">show all</a>

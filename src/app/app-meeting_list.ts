@@ -14,11 +14,15 @@ export interface MeetingList{
     meeting_date:any
 }
 const UserLists=[];
+const HostLists=[];
 Injectable()
 export class MeetingLists{
     constructor() { }
     public Add(Notifications:any){
         UserLists.push(Notifications);
+    }
+    public Add_host(Notifications:any){
+        HostLists.push(Notifications);
     }
     public fetch(){
         if(UserLists.length!=0){
@@ -26,5 +30,12 @@ export class MeetingLists{
             return UserLists[0];
         }
         console.log("userlist is empty")
+    }
+    public fetch_host(){
+        if(HostLists.length!=0){
+            console.log(HostLists[0]);
+            return HostLists[0];
+        }
+        console.log("Hostlist is empty")
     }
 }
