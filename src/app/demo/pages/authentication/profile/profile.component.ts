@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {WebServiceService} from '../../../../providers/web-service/web-service.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {Router} from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";  
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,16 +23,23 @@ export class ProfileComponent implements OnInit {
   IsnameEnabled:boolean=false;
   IsaddressEnabled:boolean=false;
   IspasswordEnabled:boolean=false;
-  constructor(private webservice:WebServiceService,public formBuilder: FormBuilder) {
+  public submitLoader: boolean;
+  constructor(private webservice:WebServiceService,public formBuilder: FormBuilder ,private router:Router,private SpinnerService: NgxSpinnerService) {
     this.profileForm = this.formBuilder.group({});
+    this.submitLoader=false;
    }
   ngOnInit() {
+    this.GetUserDetails();
+  }
+  GetUserDetails(){
+    this.SpinnerService.show();
     let bodystring={
       "userId":JSON.parse(localStorage.getItem("userDetails")).result.ID
     }
     this.webservice.Get_user_details(bodystring)
         .then(response => {
           let data = JSON.stringify(response);
+          this.SpinnerService.hide();
           this.name=JSON.parse(data).name;
           this.userId=JSON.parse(data).ID;
           this.profile_pic=JSON.parse(data).profile_pic;
@@ -40,7 +50,7 @@ export class ProfileComponent implements OnInit {
           // this.navCtrl.setRoot(LoginPage);
         }, (err) => {
           console.log("Error" + err);
-        });
+    });
   }
   name_edit(){
     this.IsnameEnabled=!this.IsnameEnabled;
@@ -74,6 +84,7 @@ export class ProfileComponent implements OnInit {
   }
   Update(){
     this.submitAttempt = true;
+    this.submitLoader=true;
     let user_address=this.address;
     let user_password=this.password;
     let user_name=this.name;
@@ -96,6 +107,16 @@ export class ProfileComponent implements OnInit {
     this.webservice.Update_user_details(bodyString)
         .then(response => {
           let data = JSON.stringify(response);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result)=>{
+            this.router.navigate(['/admin/charts/apex']);
+          })
+          this.submitLoader=false;
           let changed_data=JSON.parse(localStorage.getItem("userDetails"));
           changed_data.result.address=user_address;
           changed_data.result.name=user_name;

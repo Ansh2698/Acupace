@@ -45,7 +45,7 @@ export class AuthResetPasswordComponent implements OnInit {
           if (response[0] != 'No Record') {
             Swal.fire({
               icon: 'success',
-              title: 'Welcome to the Acupace Video Conferencing Website',
+              title: '',
               text: 'Your Password Successfully Sent to Your Mail',
             })
             this.router.navigate(['/admin/auth/signin']);

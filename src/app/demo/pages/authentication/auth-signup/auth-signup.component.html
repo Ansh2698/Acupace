@@ -44,7 +44,11 @@
                 <label for="checkbox-fill-2" class="cr">Send me the <a href="javascript:"> Newsletter</a> weekly.</label>
               </div>-->
             </div>
-            <a class="f-w-400"><button class="btn btn-primary btn-block mb-4" border-radius="25px" (click)="Signup()">Sign up</button></a>
+            <button class="btn btn-primary event-btn m-2" type="button" (click)="Signup()">
+              <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+              <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+              <span *ngIf="!this.btnLoader" class="btn-text">Signup</span>
+            </button>
             <p class="mb-2">Already have an account? <a [routerLink]="['/admin/auth/signin']" class="f-w-400">Signin</a></p>
           </div>
         </div>

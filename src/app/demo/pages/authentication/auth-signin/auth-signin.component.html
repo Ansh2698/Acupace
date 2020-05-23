@@ -33,7 +33,11 @@
                 <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
               </div>
             </div>
-            <a class="f-w-400"><button class="btn btn-block btn-primary mb-4" (click)="login()">Signin</button></a>
+            <button class="btn btn-primary event-btn m-2" type="button" (click)="login()">
+              <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+              <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+              <span *ngIf="!this.btnLoader" class="btn-text">Signin</span>
+            </button>
             <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/admin/auth/reset-password']" class="f-w-400">Reset</a></p>
             <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/admin/auth/signup']" class="f-w-400">Signup</a></p>
           </div>

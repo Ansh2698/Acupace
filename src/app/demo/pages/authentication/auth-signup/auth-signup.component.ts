@@ -12,6 +12,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 export class AuthSignupComponent implements OnInit {
   public registerForm: FormGroup;
   public submitAttempt: boolean = false;
+  public btnLoader: boolean=false;
   show: boolean = true;
   bodystring: any;
   lat: any;
@@ -36,6 +37,7 @@ export class AuthSignupComponent implements OnInit {
   }
   Signup() {
     this.submitAttempt = true;
+    this.btnLoader=true;
       let bodystring = {
         "name": this.registerForm.get('name').value,
         "email": this.registerForm.get('email').value,
@@ -53,8 +55,9 @@ export class AuthSignupComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Welcome to the Acupace Video Conferencing Website',
-            text: 'You have succesfuuly LoggedIn',
+            text: 'You have successfully created your account',
           })
+          this.btnLoader=false;
           this.router.navigate(['/admin/auth/signin']);
         }, (err) => {
           console.log("Error" + err);

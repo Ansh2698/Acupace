@@ -12,6 +12,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 export class AuthSigninComponent implements OnInit {
   public loginForm: FormGroup;
   public submitAttempt: boolean = false;
+  public btnLoader:boolean=false;
   constructor(public formBuilder: FormBuilder, private webservice: WebServiceService,private route: ActivatedRoute,private router: Router) {
     this.loginForm = this.formBuilder.group({
       mobileno: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*'), Validators.required])],
@@ -26,7 +27,7 @@ export class AuthSigninComponent implements OnInit {
   }
   login() {
     this.submitAttempt = true;
-
+    this.btnLoader=true;
     if (this.loginForm.valid) {
       let bodystring = {
         "mobileno": this.loginForm.get('mobileno').value,
@@ -38,17 +39,21 @@ export class AuthSigninComponent implements OnInit {
           let data = JSON.stringify(response);
 
           console.log('login res -> ', response['result']);
-
-          localStorage.setItem("userDetails", data);
-          if (response[0] != 'No Record') {
+          if (response['result'] != 'No Record') {
+            localStorage.setItem("userDetails", data);
             Swal.fire({
               icon: 'success',
               title: 'Welcome to the Acupace Video Conferencing Website',
-              text: 'You have succesfully created you account',
+              text: 'You have succesfuuly LoggedIn',
             })
+            this.btnLoader=false;
             this.router.navigate(['/admin/charts/apex']);
           } else {
-            console.log("Wrong Details");
+            Swal.fire({
+              icon:'error',
+              title:'Phone-number/ Password does not Match',
+              text:'Please Enter the Correct Matching Phone-number/Password'
+            })
           }
         }, (err) => {
           console.log("Error" + err);
