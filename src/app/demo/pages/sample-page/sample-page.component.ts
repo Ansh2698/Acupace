@@ -18,7 +18,8 @@ export class SamplePageComponent{
   remoteCalls: string[] = [];
   private client: AgoraClient;
   private localStream: Stream;
-  private uid: any
+  private uid: any;
+  public id:any;
   public Status:any;
   public sub:any;
   constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService) {
@@ -28,8 +29,9 @@ export class SamplePageComponent{
     .queryParams
     .subscribe(params => {
       // Defaults to 0 if no query param provided.
-      this.uid =params['id'];
+      this.uid =params['room_id'];
       this.channel_name=params['channel'];
+      this.id=params['id'];
     });
     this.startCall();
   }
@@ -163,7 +165,7 @@ export class SamplePageComponent{
             this.localStream.close();
             document.getElementById('agora_local').innerHTML = "";
             let bodystring = {
-              "id": JSON.parse(localStorage.getItem("userDetails")).result.ID,
+              "id": this.id,
               "room_id":this.uid
             };
             this.webservice.Update_meeting(bodystring)

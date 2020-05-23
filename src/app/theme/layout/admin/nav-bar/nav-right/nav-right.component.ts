@@ -40,7 +40,7 @@ export class NavRightComponent implements OnInit {
   Join_Meeting(Notification:any){
     this.current_time=moment();
     if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time)){
-      this.router.navigate(['/admin/sample-page'], { queryParams: { id:Notification.room_id,channel:Notification.channel_name} });
+      this.router.navigate(['/admin/sample-page'], { queryParams: { room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
     }
     else{
       Swal.fire({
