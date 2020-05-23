@@ -55,39 +55,18 @@ const NavigationItems = [
       },
       {
         id: 'dashboard',
-        title: 'Roles',
-        type: 'item',
-        url: '/dashboard/analytics',
-        icon: 'feather icon-roles'
-      },
-      {
-        id: 'dashboard',
-        title: 'API keys',
-        type: 'item',
-        url: '/dashboard/analytics',
-        icon: 'feather icon-keys'
-      },
-      {
-        id: 'dashboard',
-        title: 'Extensions',
-        type: 'item',
-        url: '/dashboard/analytics',
-        icon: 'feather icon-extensions'
-      },
-      {
-        id: 'dashboard',
-        title: 'Bots',
-        type: 'item',
-        url: '/dashboard/analytics',
-        icon: 'feather icon-bots'
-      },
-      {
-        id: 'dashboard',
         title: 'Messeges',
         type: 'item',
         url: '/dashboard/analytics',
         icon: 'feather icon-message-square'
       },
+      {
+        id:'about-us',
+        title:'About Us',
+        type:'item',
+        url:'/admin/about-us',
+        icon:'feather icon-info'
+      }
       /*{
         id: 'page-layouts',
         title: 'Horizontal Layouts',

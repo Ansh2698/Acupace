@@ -31,7 +31,7 @@ import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-boo
 import {MeetingLists} from './app-meeting_list';
 import { from } from 'rxjs';
 import { FooterComponent } from './theme/layout/admin/footer/footer.component';
-import { NgxSpinnerModule } from "ngx-spinner";  
+import { NgxSpinnerModule } from "ngx-spinner";
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';

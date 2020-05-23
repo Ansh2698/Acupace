@@ -46,7 +46,6 @@ export class AuthSigninComponent implements OnInit {
               title: 'Welcome to the Acupace Video Conferencing Website',
               text: 'You have succesfuuly LoggedIn',
             })
-            this.btnLoader=false;
             this.router.navigate(['/admin/charts/apex']);
           } else {
             Swal.fire({
@@ -55,6 +54,7 @@ export class AuthSigninComponent implements OnInit {
               text:'Please Enter the Correct Matching Phone-number/Password'
             })
           }
+          this.btnLoader=false;
         }, (err) => {
           console.log("Error" + err);
         });
