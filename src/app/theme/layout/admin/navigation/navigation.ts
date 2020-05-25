@@ -36,21 +36,21 @@ const NavigationItems = [
         id: 'dashboard',
         title: 'Overview',
         type: 'item',
-        url: '/admin/charts/apex',
+        url: '/admin/overview',
         icon: 'feather icon-home'
       },
       {
         id: 'user',
         title: 'Users',
         type: 'item',
-        url: '/admin/forms/basic',
+        url: '/admin/users/user-list',
         icon: 'feather icon-user'
       },
       {
         id: 'groups',
         title: 'Groups',
         type: 'item',
-        url: '/admin/forms/groups',
+        url: '/admin/groups/group-list',
         icon: 'feather icon-users'
       },
       {

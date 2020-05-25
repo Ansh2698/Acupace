@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserList} from './basic-elements'
+import {UserList} from './user-list'
 import {WebServiceService} from '../../../../providers/web-service/web-service.service';
 import {MeetingLists} from '../../../../app-meeting_list';
 import * as moment from 'moment';
@@ -7,11 +7,11 @@ import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
-  selector: 'app-basic-elements',
-  templateUrl: './basic-elements.component.html',
-  styleUrls: ['./basic-elements.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class BasicElementsComponent implements OnInit {
+export class UserListComponent implements OnInit {
   public usersList:any;
   public Notifications:any;
   timerId:any;
@@ -26,8 +26,9 @@ export class BasicElementsComponent implements OnInit {
   }
   Join_Meeting(Notification:any){
     this.current_time=moment();
-    if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time) && Notification.status!=2){
-      this.router.navigate(['/admin/sample-page'], { queryParams: {room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
+    if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time)){
+      this.router.navigate(['/admin/sample-page'], { queryParams: { room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
+      // channel and notification_id added
     }
     else{
       Swal.fire({

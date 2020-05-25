@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'charts/apex',
+        redirectTo: 'overview',
         pathMatch: 'full',
 
       },
@@ -30,16 +30,20 @@ const routes: Routes = [
         loadChildren: () => import('./demo/ui-elements/ui-basic/ui-basic.module').then(module => module.UiBasicModule)
       },
       {
-        path: 'forms',
-        loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule)
+        path: 'users',
+        loadChildren: () => import('./demo/pages/users/users.module').then(module => module.UsersModule)
+      },
+      {
+        path: 'groups',
+        loadChildren: () => import('./demo/pages/groups/groups.module').then(module => module.GroupsModule)
       },
       {
         path: 'tbl-bootstrap',
         loadChildren: () => import('./demo/pages/tables/tbl-bootstrap/tbl-bootstrap.module').then(module => module.TblBootstrapModule)
       },
       {
-        path: 'charts',
-        loadChildren: () => import('./demo/pages/core-chart/core-chart.module').then(module => module.CoreChartModule)
+        path: 'overview',
+        loadChildren: () => import('./demo/pages/overview/overview.module').then(module => module.OverviewModule)
       },
       {
         path: 'sample-page',

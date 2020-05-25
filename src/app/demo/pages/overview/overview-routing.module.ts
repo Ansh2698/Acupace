@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {BasicElementsComponent} from './basic-elements.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BasicElementsComponent
+    loadChildren: () => import('./analytics/analytics.module').then(module => module.AnalyticsModule)
+    
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BasicElementsRoutingModule { }
+export class OverviewRoutingModule { }

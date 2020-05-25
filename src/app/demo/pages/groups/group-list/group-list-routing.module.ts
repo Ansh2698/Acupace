@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {GroupListComponent} from './group-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: 'apex',
-        loadChildren: () => import('./crt-apex/crt-apex.module').then(module => module.CrtApexModule)
-      }
-    ]
+    component: GroupListComponent
   }
 ];
 
@@ -17,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreChartRoutingModule { }
+export class GroupListRoutingModule { }

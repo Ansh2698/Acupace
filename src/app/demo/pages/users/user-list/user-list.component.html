@@ -23,15 +23,21 @@
             <td>{{user.id}}</td>
             <td>{{user.host_meeting_end_time}}</td>
             <td>{{user.role}}</td>
-            <td><input *ngIf="user.meeting_status==0; else meeting_started" type="radio" class="orange" disabled value="Yet to Start"></td>
-            <ng-template #meeting_started><input *ngIf="user.meeting_status==1 ;else meeting_ended" type="radio" class="green" disabled value="Meeting Started"></ng-template>
-            <ng-template #meeting_ended><input *ngIf="user.meeting_status==2" type="radio" class="red" disabled value="Meeting Ended"></ng-template>
+            <!--
+            <td><input *ngIf="user.meeting_status==0; else meeting_started" type="radio" class="orange" disabled>  Yet to Start</td>
+            <ng-template #meeting_started><td><input *ngIf="user.meeting_status==1; else meeting_ended" type="radio" class="green" disabled> Already Started</td></ng-template>
+            <ng-template #meeting_ended><td><input type="radio" class="red" disabled></td> Meeting Ended</ng-template>
+            -->
+            <!-- meeting status modified-->
+            <td><p *ngIf="user.meeting_status==0"><input type="radio" class="orange" disabled> Yet to Start</p>
+            <p *ngIf="user.meeting_status==1"><input type="radio" class="green" disabled> Already Started</p>
+          <p *ngIf="user.meeting_status==2"><input type="radio" class="red" disabled> Meeting ended</p></td>
             <td [ngStyle]="{'cursor':'pointer'}"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary">Enter</span></a></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <a [routerLink]="['/admin/forms/create']"><button type="button" class="btn btn-primary btn-lg">Create
+    <a [routerLink]="['/admin/users/create-user']"><button type="button" class="btn btn-primary btn-lg">Create
         User</button></a>
   </app-card>
 </div>

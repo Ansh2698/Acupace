@@ -6,10 +6,10 @@ import {WebServiceService} from '../../../../providers/web-service/web-service.s
 import {NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-crt-apex',
-  templateUrl: './crt-apex.component.html',
-  styleUrls: ['./crt-apex.component.scss']
+  templateUrl: './analytics.component.html',
+  styleUrls: ['./analytics.component.scss']
 })
-export class CrtApexComponent implements OnInit {
+export class AnalyticsComponent implements OnInit {
   public chartDB: any;
   Notifications:any;
   Notifications_host:any;

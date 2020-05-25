@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BasicElementsRoutingModule } from './basic-elements-routing.module';
-import { BasicElementsComponent } from './basic-elements.component';
+import { UserListRoutingModule } from './user-list-routing.module';
+import { UserListComponent } from './user-list.component';
 import {SharedModule} from '../../../../theme/shared/shared.module';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
-import { UserList } from './basic-elements';
+import { UserList } from './user-list';
 import {MeetingLists} from '../../../../app-meeting_list';
 @NgModule({
   imports: [
     CommonModule,
-    BasicElementsRoutingModule,
+    UserListRoutingModule,
     SharedModule,
     NgbDropdownModule
   ],
   providers:[UserList,MeetingLists],
-  declarations: [BasicElementsComponent]
+  declarations: [UserListComponent]
 })
-export class BasicElementsModule { }
+export class UserListModule { }

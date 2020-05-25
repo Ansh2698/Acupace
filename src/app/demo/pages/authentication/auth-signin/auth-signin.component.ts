@@ -46,7 +46,7 @@ export class AuthSigninComponent implements OnInit {
               title: 'Welcome to the Acupace Video Conferencing Website',
               text: 'You have succesfuuly LoggedIn',
             })
-            this.router.navigate(['/admin/charts/apex']);
+            this.router.navigate(['/admin/overview']);
           } else {
             Swal.fire({
               icon:'error',
