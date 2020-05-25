@@ -23,9 +23,15 @@
             <td>{{user.id}}</td>
             <td>{{user.host_meeting_end_time}}</td>
             <td>{{user.role}}</td>
+            <!--
             <td><input *ngIf="user.meeting_status==0; else meeting_started" type="radio" class="orange" disabled>  Yet to Start</td>
             <ng-template #meeting_started><td><input *ngIf="user.meeting_status==1; else meeting_ended" type="radio" class="green" disabled> Already Started</td></ng-template>
             <ng-template #meeting_ended><td><input type="radio" class="red" disabled></td> Meeting Ended</ng-template>
+            -->
+            <!-- meeting status modified-->
+            <td><p *ngIf="user.meeting_status==0"><input type="radio" class="orange" disabled> Yet to Start</p>
+            <p *ngIf="user.meeting_status==1"><input type="radio" class="green" disabled> Already Started</p>
+          <p *ngIf="user.meeting_status==2"><input type="radio" class="red" disabled> Meeting ended</p></td>
             <td [ngStyle]="{'cursor':'pointer'}"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary">Enter</span></a></td>
           </tr>
         </tbody>
