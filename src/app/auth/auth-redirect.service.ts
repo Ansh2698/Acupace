@@ -9,7 +9,7 @@ export class AuthRedirectService implements CanActivate{
          return true;
      }
      // not logged in so redirect to login page with the return url
-     this.router.navigate(['/admin/charts/apex']);
+     this.router.navigate(['/admin/overview']);
      return false;
   }
 }

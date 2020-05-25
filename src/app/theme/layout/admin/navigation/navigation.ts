@@ -36,7 +36,7 @@ const NavigationItems = [
         id: 'dashboard',
         title: 'Overview',
         type: 'item',
-        url: '/admin/charts/apex',
+        url: '/admin/overview',
         icon: 'feather icon-home'
       },
       {

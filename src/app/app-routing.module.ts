@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'charts/apex',
+        redirectTo: 'overview',
         pathMatch: 'full',
 
       },
@@ -38,8 +38,8 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/tables/tbl-bootstrap/tbl-bootstrap.module').then(module => module.TblBootstrapModule)
       },
       {
-        path: 'charts',
-        loadChildren: () => import('./demo/pages/core-chart/core-chart.module').then(module => module.CoreChartModule)
+        path: 'overview',
+        loadChildren: () => import('./demo/pages/overview/overview.module').then(module => module.OverviewModule)
       },
       {
         path: 'sample-page',
