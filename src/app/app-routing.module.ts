@@ -34,6 +34,10 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule)
       },
       {
+        path: 'groups',
+        loadChildren: () => import('./demo/pages/groups/groups.module').then(module => module.GroupsModule)
+      },
+      {
         path: 'tbl-bootstrap',
         loadChildren: () => import('./demo/pages/tables/tbl-bootstrap/tbl-bootstrap.module').then(module => module.TblBootstrapModule)
       },
