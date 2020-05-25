@@ -37,7 +37,20 @@ export class NavRightComponent implements OnInit {
   Logout(){
     this.webservice.Logout_user();
   }
-  Join_Meeting(Notification:any){
+  Join_Meeting_by_Host(Notification:any){
+    this.current_time=moment();
+    if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time) && Notification.status!=2){
+      this.router.navigate(['/admin/sample-page'], { queryParams: { room_id:Notification.host_room_id,channel:Notification.channel_name,id:Notification.id} });
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Either the Meeting Ended or You tried to enter before the Schedule',
+      })
+    }
+  }
+  Join_Meeting_by_attendee(Notification:any){
     this.current_time=moment();
     if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time) && Notification.status!=2){
       this.router.navigate(['/admin/sample-page'], { queryParams: { room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
