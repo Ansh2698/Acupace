@@ -30,8 +30,8 @@ const routes: Routes = [
         loadChildren: () => import('./demo/ui-elements/ui-basic/ui-basic.module').then(module => module.UiBasicModule)
       },
       {
-        path: 'forms',
-        loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule)
+        path: 'users',
+        loadChildren: () => import('./demo/pages/users/users.module').then(module => module.UsersModule)
       },
       {
         path: 'groups',

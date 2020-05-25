@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserList} from './basic-elements'
+import {UserList} from './user-list'
 import {WebServiceService} from '../../../../providers/web-service/web-service.service';
 import {MeetingLists} from '../../../../app-meeting_list';
 import * as moment from 'moment';
@@ -7,11 +7,11 @@ import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
-  selector: 'app-basic-elements',
-  templateUrl: './basic-elements.component.html',
-  styleUrls: ['./basic-elements.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class BasicElementsComponent implements OnInit {
+export class UserListComponent implements OnInit {
   public usersList:any;
   public Notifications:any;
   timerId:any;
