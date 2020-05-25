@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {WebServiceService} from '../../../../providers/web-service/web-service.service';
-import { CrtApexRoutingModule } from './crt-apex-routing.module';
-import { CrtApexComponent } from './crt-apex.component';
+import { AnalyticsRoutingModule } from './analytics-routing.module';
+import { AnalyticsComponent } from './analytics.component';
 import {SharedModule} from '../../../../theme/shared/shared.module';
 import {MeetingLists} from '../../../../app-meeting_list';
 import {NgxSpinnerModule } from "ngx-spinner";  
 @NgModule({
-  declarations: [CrtApexComponent],
+  declarations: [AnalyticsComponent],
   imports: [
     CommonModule,
-    CrtApexRoutingModule,
+    AnalyticsRoutingModule,
     SharedModule,
     NgxSpinnerModule
   ],
   providers:[MeetingLists,WebServiceService]
 })
-export class CrtApexModule { }
+export class AnalyticsModule { }

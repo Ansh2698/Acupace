@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreChartRoutingModule } from './core-chart-routing.module';
+import { OverviewRoutingModule } from './overview-routing.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    CoreChartRoutingModule
+    OverviewRoutingModule
   ]
 })
-export class CoreChartModule { }
+export class OverviewModule { }

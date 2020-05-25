@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           }).then((result)=>{
-            this.router.navigate(['/admin/charts/apex']);
+            this.router.navigate(['/admin/overview']);
           })
           this.submitLoader=false;
           let changed_data=JSON.parse(localStorage.getItem("userDetails"));
