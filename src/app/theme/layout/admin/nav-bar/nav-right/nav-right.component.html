@@ -23,7 +23,7 @@
           <li class="n-title">
             <p class="m-b-0">As Host</p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications_host | slice:0:2" (click)="Join_Meeting(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications_host | slice:0:2" (click)="Join_Meeting_by_Host(Notification)">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
               <div class="media-body">
@@ -37,7 +37,7 @@
           <li class="n-title">
             <p class="m-b-0">As Attendee</p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:2" (click)="Join_Meeting(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:2" (click)="Join_Meeting_by_attendee(Notification)">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
               <div class="media-body">
