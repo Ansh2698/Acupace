@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import {WebServiceService} from '../../../providers/web-service/web-service.service'
 @Component({
@@ -22,7 +22,7 @@ export class SamplePageComponent{
   public id:any;
   public Status:any;
   public sub:any;
-  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService) {
+  constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService) {
   }
   ngOnInit(){
     this.sub = this.route
@@ -171,13 +171,14 @@ export class SamplePageComponent{
             this.webservice.Update_meeting(bodystring)
               .then(response => {
                 this.Status=response;
-                console.log(this.Status);
                 this.Status=this.Status.result;
                 Swal.fire(
                   'Meeting Ended',
                   ''+ this.Status+'',
                   'success'
-                )
+                ).then((result)=>{
+                  this.router.navigate(['/admin/charts/apex']);
+                })
               }, (err) => {
                 console.log("Error" + err);
             });
