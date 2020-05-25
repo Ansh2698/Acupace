@@ -3,8 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-      path:'create',
-      loadChildren: () => import('./create-meeting/create-meeting.module').then(module => module.CreateMeetingModule)
+      path:'',
+      children: [
+        {
+          path: 'create-meeting',
+          loadChildren: () => import('./create-meeting/create-meeting.module').then(module => module.CreateMeetingModule)
+        },
+        {
+          path: 'join-meeting',
+          loadChildren: () => import('./join-meeting/join-meeting.module').then(module => module.JoinMeetingModule)
+        },
+       
+    ]
   }
 ];
 

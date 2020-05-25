@@ -46,10 +46,6 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/overview/overview.module').then(module => module.OverviewModule)
       },
       {
-        path: 'sample-page',
-        loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
-      },
-      {
         path:'profile',
         loadChildren: () => import('./demo/pages/authentication/profile/profile.module').then(module => module.ProfileModule)
       },

@@ -27,7 +27,7 @@ export class UserListComponent implements OnInit {
   Join_Meeting(Notification:any){
     this.current_time=moment();
     if(moment(Notification.host_meeting_end_time).isSameOrAfter(this.current_time) && moment(Notification.host_meeting_start_time).isSameOrBefore(this.current_time)){
-      this.router.navigate(['/admin/sample-page'], { queryParams: { room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
+      this.router.navigate(['/admin/meeting/join-meeting'], { queryParams: { room_id:Notification.room_id,channel:Notification.channel_name,id:Notification.id} });
       // channel and notification_id added
     }
     else{

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import {WebServiceService} from '../../../providers/web-service/web-service.service'
+import {WebServiceService} from '../../../../providers/web-service/web-service.service'
 @Component({
-  selector: 'app-sample-page',
-  templateUrl: './sample-page.component.html',
-  styleUrls: ['./sample-page.component.scss']
+  selector: 'app-join-meeting',
+  templateUrl: './join-meeting.component.html',
+  styleUrls: ['./join-meeting.component.scss']
 })
-export class SamplePageComponent{
+export class JoinMeetingComponent{
   activeCall: boolean = false;
   audioEnabled: boolean = true;
   videoEnabled: boolean = true;
@@ -22,7 +22,7 @@ export class SamplePageComponent{
   public id:any;
   public Status:any;
   public sub:any;
-  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService) {
+  constructor(private ngxAgoraService: NgxAgoraService, private route: ActivatedRoute,private webservice:WebServiceService,private router:Router) {
   }
   ngOnInit(){
     this.sub = this.route
@@ -177,7 +177,8 @@ export class SamplePageComponent{
                   'Meeting Ended',
                   ''+ this.Status+'',
                   'success'
-                )
+                );
+                this.router.navigate(['/admin/overview']);
               }, (err) => {
                 console.log("Error" + err);
             });
