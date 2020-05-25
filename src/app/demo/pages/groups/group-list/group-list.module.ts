@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GroupsRoutingModule } from './groups-routing.module';
-import { GroupsComponent } from './groups.component';
+import { GroupListRoutingModule } from './group-list-routing.module';
+import { GroupListComponent } from './group-list.component';
 import {SharedModule} from '../../../../theme/shared/shared.module';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [
     CommonModule,
-    GroupsRoutingModule,
+    GroupListRoutingModule,
     SharedModule,
     NgbDropdownModule
   ],
-  declarations: [GroupsComponent]
+  declarations: [GroupListComponent]
 })
-export class GroupsModule { }
+export class GroupListModule { }

@@ -50,7 +50,7 @@ const NavigationItems = [
         id: 'groups',
         title: 'Groups',
         type: 'item',
-        url: '/admin/forms/groups',
+        url: '/admin/groups/group-list',
         icon: 'feather icon-users'
       },
       {
