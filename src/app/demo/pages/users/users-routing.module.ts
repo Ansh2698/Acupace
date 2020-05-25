@@ -6,11 +6,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'basic',
-        loadChildren: () => import('./basic-elements/basic-elements.module').then(module => module.BasicElementsModule)
+        path: 'user-list',
+        loadChildren: () => import('./user-list/user-list.module').then(module => module.UserListModule)
       },
       {
-        path:'create',
+        path:'create-user',
         loadChildren: () => import('./create-user/create-user.module').then(module => module.CreateUserModule)
       },
       
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FormElementsRoutingModule { }
+export class UsersRoutingModule { }

@@ -24,7 +24,7 @@ import {AuthRedirectService} from './auth/auth-redirect.service';
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import {UserList} from '../app/demo/pages/form-elements/basic-elements/basic-elements'
+import {UserList} from '../app/demo/pages/users/user-list/user-list'
 import {WebServiceService} from './providers/web-service/web-service.service';
 import { BaseComponent } from './theme/layout/base/base.component';
 import {NgbPopoverModule, NgbProgressbarModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
