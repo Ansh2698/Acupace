@@ -5,3 +5,13 @@
 .share{
 	margin-right: 10px;	
 }
+.error{
+	color: red;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+  }
+  .pad{
+	margin-right: 10px;
+	margin-top: 10px;
+  }

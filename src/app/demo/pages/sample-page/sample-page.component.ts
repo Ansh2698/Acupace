@@ -177,7 +177,7 @@ export class SamplePageComponent{
                   ''+ this.Status+'',
                   'success'
                 ).then((result)=>{
-                  this.router.navigate(['/admin/charts/apex']);
+                  this.router.navigate(['/admin/overview']);
                 })
               }, (err) => {
                 console.log("Error" + err);

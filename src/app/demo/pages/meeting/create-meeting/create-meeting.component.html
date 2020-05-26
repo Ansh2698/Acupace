@@ -43,11 +43,16 @@
                         </div>
                         <div class="noborder" no-lines
                           *ngIf="!inviteForm.controls.channel_name.valid && (inviteForm.controls.channel_name.dirty || submitAttempt)">
-                          <p text-left text-wrap class="error">Please enter the Valid Email</p>
+                          <p text-left text-wrap class="error">Room name is required</p>
                         </div>
-                        <div class="input-group mb-3">
-                          <input type="email" class="form-control" placeholder="Please Enter the attendee_email" formControlName="attendee_email">
-                        </div>
+                        <div class="input-group mb-3" formArrayName="attendee_email">
+                          <div *ngFor="let email of attendee_email.controls; index as idx" class="form-group">
+                            <input [formControlName]="idx" placeholder="Enter the Email" class="form-control">
+                            <label *ngIf="email.invalid" [ngClass] = "'error'"> Email is required. </label>
+                            <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'">Add More Emails</button>
+                            <button (click)="deleteNameField(idx)" class="btn btn-danger">Delete</button>
+                          </div>
+                        </div> 
                         <div class="noborder" no-lines
                           *ngIf="!inviteForm.controls.attendee_email.valid && (inviteForm.controls.attendee_email.dirty || submitAttempt)">
                           <p text-left text-wrap class="error">Please enter the Valid Email</p>
@@ -67,7 +72,11 @@
                           <p text-left text-wrap class="error">Please enter the End Time of the Meeting</p>
                         </div>
                       </form>
-                      <button type="button" class="btn btn-primary btn-lg" (click)="Invite()">Invite</button>
+                      <button class="btn btn-primary event-btn m-2" type="button" (click)="Invite()">
+                        <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+                        <span *ngIf="this.submitLoader" class="load-text"> Inviting...</span>
+                        <span *ngIf="!this.submitLoader" class="btn-text">Invite</span>
+                      </button>
                     </div>
                   </div>
                   <div class="app-modal-footer">
