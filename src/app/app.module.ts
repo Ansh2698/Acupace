@@ -32,6 +32,7 @@ import {MeetingLists} from './app-meeting_list';
 import { from } from 'rxjs';
 import { FooterComponent } from './theme/layout/admin/footer/footer.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HeaderComponent } from './theme/layout/admin/header/header.component';
 //import { TestingModule } from './testing/testing.module';
 
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
@@ -54,6 +55,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ToggleFullScreenDirective,
     BaseComponent,
     FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
