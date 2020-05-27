@@ -33,7 +33,7 @@
                 <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
               </div>
             </div>
-            <button class="btn btn-primary event-btn m-2" type="button" (click)="login()">
+            <button class="btn btn-primary event-btn m-2" type="button" (click)="login()" style="border-radius: 20px;">
               <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
               <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
               <span *ngIf="!this.btnLoader" class="btn-text">Signin</span>

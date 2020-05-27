@@ -44,7 +44,7 @@
                 <label for="checkbox-fill-2" class="cr">Send me the <a href="javascript:"> Newsletter</a> weekly.</label>
               </div>-->
             </div>
-            <button class="btn btn-primary event-btn m-2" type="button" (click)="Signup()">
+            <button class="btn btn-primary event-btn m-2" type="button" (click)="Signup()" style="border-radius: 20px;">
               <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
               <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
               <span *ngIf="!this.btnLoader" class="btn-text">Signup</span>

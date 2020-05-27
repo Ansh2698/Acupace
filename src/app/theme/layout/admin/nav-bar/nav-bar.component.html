@@ -5,7 +5,7 @@
 <ng-template #mainHeader>
   <div class="m-header">
     <a href="javascript:" class="mobile-menu" id="mobile-collapse" (click)="navCollapse()"><span></span></a>
-    <a [routerLink]="['/admin/dashboard/analytics']" class="b-brand">
+    <a [routerLink]="['']" class="b-brand">
       <img id="main-logo" src="assets/images/logo.jpg" alt="" class="logo" *ngIf="this.nextConfig.navBrandColor !== 'brand-default' || this.nextConfig.headerBackColor !== 'header-default'">
       <img src="assets/images/logo.jpg" alt="" class="logo" *ngIf="this.nextConfig.navBrandColor === 'brand-default' && this.nextConfig.headerBackColor === 'header-default'">
       <img src="assets/images/logo.jpg" alt="" class="logo-thumb">

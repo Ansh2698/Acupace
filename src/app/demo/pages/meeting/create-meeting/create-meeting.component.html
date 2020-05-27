@@ -31,7 +31,7 @@
               <h5 class="card-title">No Meeting !!!</h5>
               <p class="card-text">Start your first meeting</p>
               <button type="button" class="btn btn-primary" data-toggle="modal"
-                (click)="modalDefault.show()">Create Meeting</button>
+                (click)="modalDefault.show()" style="border-radius: 20px;">Create Meeting</button>
               <app-ui-modal #modalDefault dialogClass="modal-dialog-centered">
                 <div class="app-modal-body">
                   <div class="app-modal-header">
@@ -49,8 +49,8 @@
                           <div *ngFor="let email of attendee_email.controls; index as idx" class="form-group">
                             <input [formControlName]="idx" placeholder="Enter the Email" class="form-control">
                             <label *ngIf="email.invalid" [ngClass] = "'error'"> Email is required. </label>
-                            <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'">Add More Emails</button>
-                            <button (click)="deleteNameField(idx)" class="btn btn-danger">Delete</button>
+                            <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'" style="border-radius: 20px;">Add More Emails</button>
+                            <button (click)="deleteNameField(idx)" class="btn btn-danger" style="border-radius: 20px;">Delete</button>
                           </div>
                         </div> 
                         <div class="noborder" no-lines
@@ -72,7 +72,7 @@
                           <p text-left text-wrap class="error">Please enter the End Time of the Meeting</p>
                         </div>
                       </form>
-                      <button class="btn btn-primary event-btn m-2" type="button" (click)="Invite()">
+                      <button class="btn btn-primary event-btn m-2" type="button" (click)="Invite()" style="border-radius: 20px;">
                         <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
                         <span *ngIf="this.submitLoader" class="load-text"> Inviting...</span>
                         <span *ngIf="!this.submitLoader" class="btn-text">Invite</span>
