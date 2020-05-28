@@ -31,6 +31,9 @@ export class SamplePageComponent{
   public id:any;
   public Status:any;
   public sub:any;
+  public remoteStreams = {};
+  public mainstreamID;
+  public changedstreamID;
   constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService) {
   }
   ngOnInit(){
@@ -105,6 +108,7 @@ export class SamplePageComponent{
     this.client.on(ClientEvent.RemoteStreamSubscribed, evt => {
       const stream = evt.stream as Stream;
       const id = this.getRemoteId(stream);
+      this.remoteStreams[id]=stream;
       this.remoteCalls.push(id);
       setTimeout(() => stream.play(id), 1000);
     });
@@ -122,6 +126,7 @@ export class SamplePageComponent{
       const stream = evt.stream as Stream;
       if (stream) {
         stream.stop();
+        delete this.remoteStreams[evt.uid];
         this.remoteCalls = this.remoteCalls.filter(call => call !== `${this.getRemoteId(stream)}`);
         console.log(`${evt.uid} left from this channel`);
         Swal.fire(
@@ -149,6 +154,8 @@ export class SamplePageComponent{
       () => {
         // The user has granted access to the camera and mic.
         this.localStream.play(this.localCallId);
+        this.mainstreamID=this.localStream.getId();
+        this.remoteStreams[this.localCallId]=this.localStream;
         if (onSuccess) {
           onSuccess();
         }
@@ -214,6 +221,16 @@ export class SamplePageComponent{
   }
   private getRemoteId(stream: Stream): string {
     return `agora_remote-${stream.getId()}`;
+  }
+  Toggle_Stream(remoteId:any){
+    this.remoteStreams[remoteId].stop();
+    this.remoteStreams[remoteId].play(this.localCallId);
+    this.remoteStreams[this.localCallId].stop();
+    this.remoteStreams[this.localCallId].play(remoteId);
+    let stream:Stream;
+    stream=this.remoteStreams[this.localCallId];
+    this.remoteStreams[this.localCallId]=this.remoteStreams[remoteId];
+    this.remoteStreams[remoteId]=stream;
   }
 }
 
