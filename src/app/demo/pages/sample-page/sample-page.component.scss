@@ -8,31 +8,34 @@ p {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .agora_local{
   background-color: #404040;
-  height: 500px;
-  width: 750px;
-  border: black 1px solid;
+  height: 510px;
+  width: 760px;
+  border: #00cec9 5px solid;
   position: absolute;
-  top: 20px;
-  left: 0%;
+  top: 17%;
+  left: 17%;
 }
 #agora_local{
   height: 500px;
   width: 750px;
+  position: relative;
+  bottom: 6%;
 }
 
 .agora_remote{
   background-color: #404040;
   height: 115px;
   width: 175px;
-  border: black 1px solid;
+  border: #636e72 5px solid;
   position: relative;
   top: 20px;
-  left: 80%;
+  left: 10%;
+  margin: 5px 5px 5px 5px;
 }
 
 .video-buttons{
