@@ -14,6 +14,15 @@
 		</div>
 		<div id="agora_local"></div>
 	</div>
-	<div class="agora_remote" *ngFor="let remote of remoteCalls" [id]="remote">
+	<div class="container">
+		<div style="float: left">
+			<button (click)="scrollLeft()">left</button>
+		</div>
+		<div #widgetsContent class="middle">
+			<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote"></div>
+		</div>
+		<div style="float: right">
+			<button (click)="scrollRight()">right</button>
+		</div>
 	</div>
 </div>

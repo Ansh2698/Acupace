@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,AfterViewInit} from '@angular/core';
 import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from 'ngx-agora';
 import { ActivatedRoute,Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -9,6 +9,15 @@ import {WebServiceService} from '../../../providers/web-service/web-service.serv
   styleUrls: ['./sample-page.component.scss']
 })
 export class SamplePageComponent{
+  @ViewChild('widgetsContent', {read: ElementRef,static:true}) public widgetsContent: ElementRef<any>;
+
+  public scrollRight(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 150), behavior: 'smooth' });
+  }
+
+  public scrollLeft(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 150), behavior: 'smooth' });
+  }
   activeCall: boolean = false;
   audioEnabled: boolean = true;
   videoEnabled: boolean = true;
