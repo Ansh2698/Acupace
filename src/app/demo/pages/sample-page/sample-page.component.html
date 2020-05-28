@@ -19,7 +19,7 @@
 			<button (click)="scrollLeft()">left</button>
 		</div>
 		<div #widgetsContent class="middle">
-			<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote"></div>
+			<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote" (click)="Toggle_Stream(remote)"></div>
 		</div>
 		<div style="float: right">
 			<button (click)="scrollRight()">right</button>
