@@ -26,7 +26,6 @@ p {
   position: relative;
   bottom: 6%;
 }
-
 .agora_remote{
   background-color: #404040;
   height: 115px;
@@ -36,8 +35,8 @@ p {
   top: 20px;
   left: 10%;
   margin: 5px 5px 5px 5px;
+  display: inline-block;
 }
-
 .video-buttons{
   width: 250px;
   top: 95%;
@@ -64,4 +63,11 @@ p {
 }
 #agora_local > div{
   border-radius: 10px;
+}
+.middle {
+  float: left;
+  width: 90%;
+  overflow: hidden;
+  /*will change this to hidden later to deny scolling to user*/
+  white-space: nowrap;
 }
