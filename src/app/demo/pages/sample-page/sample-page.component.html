@@ -16,23 +16,26 @@
 	</div>
 	<div class="container">
 		<div class="row">
-		<div class="col-sm">
-		<div style="float: left">
-			<i class="fa fa-arrow-circle-left" (click)="scrollLeft()" [ngStyle]="{'cursor':'pointer'}" id="left_arrow"></i>
-			<!--<button (click)="scrollLeft()">left</button>-->	
-		</div>
-		</div>
-		<div class="col-10">
-		<div #widgetsContent class="middle">
-			<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote" (click)="Toggle_Stream(remote)" [ngStyle]="{'cursor':'pointer'}"></div>
-		</div>
-		</div>
-		<div class="col-sm">
-		<div style="float: right">
-			<i class="fa fa-arrow-circle-right" (click)="scrollRight()" [ngStyle]="{'cursor':'pointer'}" id="right_arrow"></i>
-			<!--<button (click)="scrollRight()">right</button>-->
-		</div>
-	    </div>
+			<div class="col-sm">
+				<div style="float: left">
+					<i class="fa fa-arrow-circle-left" (click)="scrollLeft()" [ngStyle]="{'cursor':'pointer'}"
+						id="left_arrow"></i>
+					<!--<button (click)="scrollLeft()">left</button>-->
+				</div>
+			</div>
+			<div class="col-10">
+				<div #widgetsContent class="middle">
+					<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote"
+						(click)="Toggle_Stream(remote)" [ngStyle]="{'cursor':'pointer'}"></div>
+				</div>
+			</div>
+			<div class="col-sm">
+				<div style="float: right">
+					<i class="fa fa-arrow-circle-right" (click)="scrollRight()" [ngStyle]="{'cursor':'pointer'}"
+						id="right_arrow"></i>
+					<!--<button (click)="scrollRight()">right</button>-->
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
