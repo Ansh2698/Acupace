@@ -32,7 +32,11 @@
             <td><p *ngIf="user.meeting_status==0"><input type="radio" class="orange" disabled> Yet to Start</p>
             <p *ngIf="user.meeting_status==1"><input type="radio" class="green" disabled> Already Started</p>
           <p *ngIf="user.meeting_status==2"><input type="radio" class="red" disabled> Meeting ended</p></td>
-            <td [ngStyle]="{'cursor':'pointer'}"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary">Enter</span></a></td>
+            <td [ngStyle]="{'cursor':'pointer'}">
+              <p *ngIf="user.meeting_status==0"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: orange;">Enter</span></a></p>
+              <p *ngIf="user.meeting_status==1"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: green;">Enter</span></a></p>
+              <p *ngIf="user.meeting_status==2"><a disabled="true" (click)="disabled"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: red;">Enter</span></a></p>
+            </td>
           </tr>
         </tbody>
       </table>
