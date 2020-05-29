@@ -32,8 +32,7 @@ export class SamplePageComponent{
   public Status:any;
   public sub:any;
   public remoteStreams = {};
-  public mainstreamID;
-  public changedstreamID;
+  public LocalStreamID=this.localCallId;
   constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService) {
   }
   ngOnInit(){
@@ -154,7 +153,6 @@ export class SamplePageComponent{
       () => {
         // The user has granted access to the camera and mic.
         this.localStream.play(this.localCallId);
-        this.mainstreamID=this.localStream.getId();
         this.remoteStreams[this.localCallId]=this.localStream;
         if (onSuccess) {
           onSuccess();
@@ -223,14 +221,31 @@ export class SamplePageComponent{
     return `agora_remote-${stream.getId()}`;
   }
   Toggle_Stream(remoteId:any){
-    this.remoteStreams[remoteId].stop();
-    this.remoteStreams[remoteId].play(this.localCallId);
-    this.remoteStreams[this.localCallId].stop();
-    this.remoteStreams[this.localCallId].play(remoteId);
-    let stream:Stream;
-    stream=this.remoteStreams[this.localCallId];
-    this.remoteStreams[this.localCallId]=this.remoteStreams[remoteId];
-    this.remoteStreams[remoteId]=stream;
+    if(this.remoteStreams[this.localCallId]!=this.localStream){
+      if(this.LocalStreamID!=remoteId){
+        this.Toggle(this.localCallId,this.LocalStreamID);
+        this.LocalStreamID = this.localCallId;
+        this.Toggle(this.localCallId,remoteId);
+        this.LocalStreamID = remoteId;
+      }
+      else{
+        this.Toggle(this.localCallId,remoteId);
+        this.LocalStreamID = this.localCallId;
+      }
+    }
+    else{
+      this.Toggle(this.localCallId,remoteId);
+      this.LocalStreamID=remoteId;
+    }
+  }
+  Toggle(local:any,remote:any){
+      this.remoteStreams[local].stop();
+      this.remoteStreams[local].play(remote);
+      this.remoteStreams[remote].stop();
+      this.remoteStreams[remote].play(local);
+      let stream:Stream=this.remoteStreams[local];
+      this.remoteStreams[local]=this.remoteStreams[remote];
+      this.remoteStreams[remote]=stream;
   }
 }
 
