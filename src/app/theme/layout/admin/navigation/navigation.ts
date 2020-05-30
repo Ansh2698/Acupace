@@ -66,6 +66,13 @@ const NavigationItems = [
         type:'item',
         url:'/admin/about-us',
         icon:'feather icon-info'
+      },
+      {
+        id:'faq',
+        title:'Faq',
+        type:'item',
+        url:'/admin/faq',
+        icon:'feather icon-info'
       }
       /*{
         id: 'page-layouts',
