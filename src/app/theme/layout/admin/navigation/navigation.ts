@@ -72,7 +72,7 @@ const NavigationItems = [
         title:'Faq',
         type:'item',
         url:'/admin/faq',
-        icon:'feather icon-info'
+        icon:'feather icon-help-circle'
       }
       /*{
         id: 'page-layouts',

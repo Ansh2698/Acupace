@@ -11,7 +11,7 @@
   <li>
     <div class="dropdown" ngbDropdown placement="auto">
       <a ngbDropdownToggle href="javascript:" data-toggle="dropdown"(click)="GetNotification()"><i class="icon feather icon-bell"></i></a>
-      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right notification">
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right notification" style="border-radius: 10px;">
         <div class="noti-head">
           <h6 class="d-inline-block m-b-0">Notifications</h6>
           <div class="float-right">
@@ -58,8 +58,8 @@
       <a href="javascript:" ngbDropdownToggle data-toggle="dropdown">
         <i class="icon feather icon-user"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu>
-        <div class="pro-head">
+      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu style="border-radius: 10px;">
+        <div class="pro-head" style="background-color:black; ">
           <img src={{profile_pic}} class="img-radius" alt="User-Profile-Image">
           <span>{{name}}</span>
           <a (click)="Logout()"[routerLink]="['/admin/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout">
