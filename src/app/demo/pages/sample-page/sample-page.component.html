@@ -1,4 +1,4 @@
-<div class="video-container">
+<div *ngIf="fullscreen==false" class="video-container">
 	<div class="call-container">
 	</div>
 	<div class="agora_local">
@@ -10,9 +10,52 @@
 				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="!audioEnabled">mic_off</i>
 				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="videoEnabled">videocam</i>
 				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="!videoEnabled">videocam_off</i>
+				<i class="archive material-icons" (click)="toggleScreen()">archive</i>
 			</ng-container>
 		</div>
 		<div id="agora_local"></div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<div style="float: left">
+					<i class="fa fa-arrow-circle-left" (click)="scrollLeft()" [ngStyle]="{'cursor':'pointer'}"
+						id="left_arrow"></i>
+					<!--<button (click)="scrollLeft()">left</button>-->
+				</div>
+			</div>
+			<div class="col-10">
+				<div #widgetsContent class="middle">
+					<div [ngClass]="'agora_remote'" *ngFor="let remote of remoteCalls" [id]="remote"
+						(click)="Toggle_Stream(remote)" [ngStyle]="{'cursor':'pointer'}"></div>
+				</div>
+			</div>
+			<div class="col-sm">
+				<div style="float: right">
+					<i class="fa fa-arrow-circle-right" (click)="scrollRight()" [ngStyle]="{'cursor':'pointer'}"
+						id="right_arrow"></i>
+					<!--<button (click)="scrollRight()">right</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="fullscreen==true" class="video-container">
+	<div class="call-container">
+	</div>
+	<div class="agora_local1">
+		<div class="video-buttons1">
+			<i class="startCall material-icons" (click)="startCall()" *ngIf="!activeCall">videocam</i>
+			<ng-container *ngIf="activeCall">
+				<i class="endCall material-icons" (click)="leave()" *ngIf="activeCall">phone</i>
+				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="audioEnabled">mic</i>
+				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="!audioEnabled">mic_off</i>
+				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="videoEnabled">videocam</i>
+				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="!videoEnabled">videocam_off</i>
+				<i class="archive material-icons" (click)="toggleScreen()">archive</i>
+			</ng-container>
+		</div>
+		<div id="agora_local1"></div>
 	</div>
 	<div class="container">
 		<div class="row">
