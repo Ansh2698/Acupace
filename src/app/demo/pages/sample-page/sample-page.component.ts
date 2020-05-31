@@ -217,7 +217,6 @@ export class SamplePageComponent{
             this.activeCall = false;
             this.remoteCalls=[];
             this.localStream.close();
-            document.getElementById('agora_local').innerHTML = "";
             let bodystring = {
               "id": this.id,
               "room_id":this.uid
