@@ -2,16 +2,16 @@
   <li>
     <a [routerLink]="['/admin/meeting/create']" [routerLinkActive]="'active'" class="dud-logout" title="Create Meeting"><button type="button" class="btn btn-dark" style="border-radius: 20px;">My Room</button></a>
   </li>
-  <!--<li>
+  <li>
     <a [routerLink]="['/admin/sample-page']" [routerLinkActive]="'active'" class="dud-logout" title="Join Meeting"><button type="button" class="btn btn-dark" >Join meeting</button></a>
-  </li>-->
+  </li>
   <li>
     <a [routerLink]="['/admin/meeting/create']" [routerLinkActive]="'active'" class="dud-logout" title="Host Meeting"><button type="button" class="btn btn-dark" style="border-radius: 20px;">Host meeting</button></a>
   </li>
   <li>
     <div class="dropdown" ngbDropdown placement="auto">
       <a ngbDropdownToggle href="javascript:" data-toggle="dropdown"(click)="GetNotification()"><i class="icon feather icon-bell"></i></a>
-      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right notification">
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right notification" style="border-radius: 10px;">
         <div class="noti-head">
           <h6 class="d-inline-block m-b-0">Notifications</h6>
           <div class="float-right">
@@ -21,13 +21,15 @@
         </div>
         <ul class="noti-body" *ngIf="Notifications_host!='No Record Found'">
           <li class="n-title">
-            <p class="m-b-0">As Host</p>
+            <p class="m-b-0"><strong> As Host</strong></p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications_host | slice:0:2" (click)="Join_Meeting_by_Host(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications_host | slice:0:2" (click)="Join_Meeting_by_Host(Notification)" class="list">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
               <div class="media-body">
-                <p><strong>{{Notification.host_name}}</strong><span class="n-time text-muted">Meeting Start-time<i class="icon feather icon-clock m-r-10"></i>{{Notification.host_meeting_start_time}}</span></p>
+                <p><strong>{{Notification.host_name}}</strong></p>
+                <p><strong>Channel Name : <span>{{Notification.channel_name}}</span></strong></p>
+                <p><strong>Meeting Start-time<i class="icon feather icon-clock m-r-10"></i>{{Notification.host_meeting_start_time}}</strong> </p>
                 <p>{{Notification.host_email}}</p>
               </div>
             </div>
@@ -35,20 +37,22 @@
         </ul>
         <ul class="noti-body" *ngIf="Notifications!='No Record Found'">
           <li class="n-title">
-            <p class="m-b-0">As Attendee</p>
+            <p class="m-b-0"><strong> As Attendee</strong></p>
           </li>
-          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:2" (click)="Join_Meeting_by_attendee(Notification)">
+          <li class="notification" [ngStyle]="{'cursor':'pointer'}" *ngFor="let Notification of Notifications | slice:0:2" (click)="Join_Meeting_by_attendee(Notification)" class="list">
             <div class="media">
               <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
               <div class="media-body">
-                <p><strong>{{Notification.host_name}}</strong><span class="n-time text-muted">Meeting Start-time<i class="icon feather icon-clock m-r-10"></i>{{Notification.host_meeting_start_time}}</span></p>
+                <p><strong>{{Notification.host_name}}</strong></p>
+                <p><strong>Channel Name : <span>{{Notification.channel_name}}</span></strong></p>
+                <p><strong>Meeting Start-time<i class="icon feather icon-clock m-r-10"></i>{{Notification.host_meeting_start_time}}</strong> </p>
                 <p>{{Notification.host_email}}</p>
               </div>
             </div>
           </li>
         </ul>
         <div class="noti-footer">
-          <a [routerLink]="['/admin/forms/basic']">show all</a>
+          <a [routerLink]="['/admin/users/user-list']">show all</a>
         </div>
       </div>
     </div>
@@ -58,8 +62,8 @@
       <a href="javascript:" ngbDropdownToggle data-toggle="dropdown">
         <i class="icon feather icon-user"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu>
-        <div class="pro-head">
+      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu style="border-radius: 10px;">
+        <div class="pro-head" style="background-color:black; ">
           <img src={{profile_pic}} class="img-radius" alt="User-Profile-Image">
           <span>{{name}}</span>
           <a (click)="Logout()"[routerLink]="['/admin/auth/signin']" [routerLinkActive]="'active'" class="dud-logout" title="Logout">

@@ -9,8 +9,10 @@
             <th>Name</th>
             <th>Email Id</th>
             <th>UID</th>
-            <th>Created At</th>
+            <th>Start Time</th>
+            <th>End Time</th>
             <th>Role</th>
+            <th>Channel Name</th>
             <th>Meeting Status</th>
             <th>Action</th>
           </tr>
@@ -21,8 +23,10 @@
             <td>{{user.host_name}}</td>
             <td>{{user.host_email}}</td>
             <td>{{user.id}}</td>
+            <td>{{user.host_meeting_start_time}}</td>
             <td>{{user.host_meeting_end_time}}</td>
             <td>{{user.role}}</td>
+            <td>{{user.channel_name}}</td>
             <!--
             <td><input *ngIf="user.meeting_status==0; else meeting_started" type="radio" class="orange" disabled>  Yet to Start</td>
             <ng-template #meeting_started><td><input *ngIf="user.meeting_status==1; else meeting_ended" type="radio" class="green" disabled> Already Started</td></ng-template>
@@ -33,9 +37,9 @@
             <p *ngIf="user.meeting_status==1"><input type="radio" class="green" disabled> Already Started</p>
           <p *ngIf="user.meeting_status==2"><input type="radio" class="red" disabled> Meeting ended</p></td>
             <td [ngStyle]="{'cursor':'pointer'}">
-              <p *ngIf="user.meeting_status==0"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: orange;">Please Wait....</span></a></p>
-              <p *ngIf="user.meeting_status==1"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: green;">Join</span></a></p>
-              <p *ngIf="user.meeting_status==2"><a disabled="true" (click)="disabled"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: red;">Can't Join</span></a></p>
+              <p *ngIf="user.meeting_status==0"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: orange;">JOIN</span></a></p>
+              <p *ngIf="user.meeting_status==1"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: green;">JOIN</span></a></p>
+              <p *ngIf="user.meeting_status==2"><a disabled="true" (click)="disabled"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: red;">Ended</span></a></p>
             </td>
           </tr>
         </tbody>
