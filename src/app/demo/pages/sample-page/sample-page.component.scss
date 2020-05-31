@@ -10,7 +10,6 @@ p {
   flex-wrap: wrap;
   flex-direction: row;
 }
-
 .agora_local{
   background-color: #404040;
   height: 35%;
@@ -21,11 +20,25 @@ p {
   left: 22%;
   border-radius:15px;
 }
+.agora_local1{
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+}
 #agora_local{
   height: 100%;
   width: 100%;
   position: relative;
   bottom: 8%;
+}
+#agora_local1{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  bottom: 9%;
+  border-radius: 10px;
+  border: #2d3436 6px solid;
+
 }
 .agora_remote{
   background-color: #404040;
@@ -38,6 +51,27 @@ p {
   margin: 5px 5px 5px 5px;
   display: inline-block;
   border-radius: 10px;
+  
+}
+.video-buttons1{
+  width: 250px;
+  top: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  z-index: 999;
+}
+
+.video-buttons1 i{
+  cursor: pointer;
+  position: relative;
+  bottom: 30px;
+  margin: 6px;
+  font-size: 30px;
+  background-color: black;
+  border: black 6px solid;
+  border-radius: 5px;
 }
 .video-buttons{
   width: 250px;
@@ -53,7 +87,6 @@ p {
   position: relative;
   bottom: 20px;
 }
-
 .endCall{
   color: red;
 }
@@ -74,13 +107,13 @@ p {
   height: 150px;
   overflow: hidden;
   /*will change this to hidden later to deny scolling to user*/
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   background-color: #636e72;
-  opacity: 0.9;
+  opacity: 0.7;
   border-radius: 10px;
 }
 .agora_remote:hover {
-  opacity:0.6;
+  opacity: 1;
   border: #0984e3 5px solid;
 }
 #right_arrow  {
@@ -95,4 +128,9 @@ p {
   color:#0984e3;
   position: relative;
   top: 40px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
 }

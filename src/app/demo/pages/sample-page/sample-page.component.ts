@@ -19,20 +19,24 @@ export class SamplePageComponent{
     this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 150), behavior: 'smooth' });
   }
   activeCall: boolean = false;
+  public agoraAppId= "c023596a5f6d4c949d9b207101ee8c74";
   audioEnabled: boolean = true;
   videoEnabled: boolean = true;
   title = 'angular-video';
-  localCallId = 'agora_local';
+  localCallId = 'agora_local1';
   channel_name:any;
   remoteCalls: string[] = [];
   private client: AgoraClient;
+  private screenclient:AgoraClient;
   private localStream: Stream;
+  private screenStream:Stream;
   private uid: any;
   public id:any;
   public Status:any;
   public sub:any;
   public remoteStreams = {};
   public LocalStreamID=this.localCallId;
+  public fullscreen:boolean=true;
   constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService) {
   }
   ngOnInit(){
@@ -49,6 +53,9 @@ export class SamplePageComponent{
   ngOnDestroy(){
     this.sub.unsubscribe();
   }
+  Toggle_Screen(){
+    this.fullscreen!=this.fullscreen;
+  }
   startCall(){
     this.activeCall=true;
     this.client = this.ngxAgoraService.createClient({ mode: 'rtc', codec: 'h264' });
@@ -60,12 +67,22 @@ export class SamplePageComponent{
     // Join and publish methods added in this step
     this.initLocalStream(() => this.join(uid => this.publish(), error => console.error(error)));
   }
-
+  ScreenShare(){
+    this.screenclient=this.ngxAgoraService.createClient({ mode: 'rtc', codec: 'h264' });
+    this.assignScreenHandlers();
+    this.screenStream=this.ngxAgoraService.createStream({streamID: this.uid, audio: false, video: false, screen: true,mediaSource:  'screen'});
+    this.screenStream.setVideoProfile("480p_2");
+    this.assignScreenStreamHandlers();
+    this.initScreenStream(()=> this.joinScreen(uid => this.publishScreen(), error => console.error(error)));
+  }
   /**
    * Attempts to connect to an online chat room where users can host and receive A/V streams.
    */
   join(onSuccess?: (uid: number | string) => void, onFailure?: (error: Error) => void): void {
     this.client.join(null, this.channel_name, this.uid, onSuccess, onFailure);
+  }
+  joinScreen(onSuccess?: (uid: number | string) => void, onFailure?: (error: Error) => void): void {
+    this.screenclient.join(null, this.channel_name, null, onSuccess, onFailure);
   }
 
   /**
@@ -73,6 +90,9 @@ export class SamplePageComponent{
    */
   publish(): void {
     this.client.publish(this.localStream, err => console.log('Publish local stream error: ' + err));
+  }
+  publishScreen():void{
+    this.screenclient.publish(this.screenStream, err => console.log('Publish Screen stream error: ' + err));
   }
   unpublish(): void {
     this.client.unpublish(this.localStream, error => console.error(error));
@@ -124,6 +144,9 @@ export class SamplePageComponent{
     this.client.on(ClientEvent.PeerLeave, evt => {
       const stream = evt.stream as Stream;
       if (stream) {
+        if(this.remoteStreams[this.localCallId]!=this.localStream){
+          this.Toggle(this.localCallId,this.LocalStreamID);
+        }
         stream.stop();
         delete this.remoteStreams[evt.uid];
         this.remoteCalls = this.remoteCalls.filter(call => call !== `${this.getRemoteId(stream)}`);
@@ -136,7 +159,12 @@ export class SamplePageComponent{
       }
     });
   }
-
+  private assignScreenHandlers():void{
+    this.screenclient.on(ClientEvent.LocalStreamPublished, evt => {
+      console.log('Publish screen stream successfully');
+      this.localStream.stop();
+    });
+  }
   private assignLocalStreamHandlers(): void {
     this.localStream.on(StreamEvent.MediaAccessAllowed, () => {
       console.log('accessAllowed');
@@ -147,7 +175,11 @@ export class SamplePageComponent{
       console.log('accessDenied');
     });
   }
-
+  private assignScreenStreamHandlers(){
+    this.screenStream.on(StreamEvent.ScreenSharingStopped,function(evt){
+      console.log("screen sharing stopped");
+    })
+  }
   private initLocalStream(onSuccess?: () => any): void {
     this.localStream.init(
       () => {
@@ -160,6 +192,14 @@ export class SamplePageComponent{
       },
       err => console.error('getUserMedia failed', err)
     );
+  }
+  private initScreenStream(onSuccess?: () => any):void{
+    this.screenStream.init(()=>{
+      if(onSuccess){
+        onSuccess();
+      }
+      console.log("Screeen share Succesfully");
+    },err=>console.error("Get screen Media failed",err));
   }
   leave(){
     if(this.activeCall){
@@ -246,6 +286,21 @@ export class SamplePageComponent{
       let stream:Stream=this.remoteStreams[local];
       this.remoteStreams[local]=this.remoteStreams[remote];
       this.remoteStreams[remote]=stream;
+  }
+  toggleScreen(){
+    console.log(this.localCallId);
+    let stream:Stream=this.remoteStreams[this.localCallId];
+    stream.stop();
+    this.fullscreen=(!this.fullscreen);
+    if(this.fullscreen==false){
+      this.localCallId="agora_local";
+    }
+    else{
+      this.localCallId="agora_local1";
+    }
+    console.log(this.localCallId);
+    setTimeout(() => stream.play(this.localCallId), 1000);
+    this.remoteStreams[this.localCallId]=this.localStream;
   }
 }
 
