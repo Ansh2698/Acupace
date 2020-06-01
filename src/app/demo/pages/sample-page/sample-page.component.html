@@ -1,8 +1,8 @@
 <div class="video-container">
 	<div class="call-container">
 	</div>
-	<div [ngClass]="{'agora_local1': fullscreen==true,'agora_local': fullscreen==false}">
-		<div [ngClass]="{'video-buttons1': fullscreen==true,'video-buttons': fullscreen==false}">
+	<div [ngClass]="{'agora_local-fullscreen': fullscreen==true,'agora_local': fullscreen==false}">
+		<div [ngClass]="{'video-buttons-fullscreen': fullscreen==true,'video-buttons': fullscreen==false}">
 			<i class="startCall material-icons" (click)="startCall()" *ngIf="!activeCall">videocam</i>
 			<ng-container *ngIf="activeCall">
 				<i class="endCall material-icons" (click)="leave()" *ngIf="activeCall">phone</i>
@@ -13,7 +13,7 @@
 				<i class="archive material-icons" (click)="toggleScreen()">archive</i>
 			</ng-container>
 		</div>
-		<div *ngIf="fullscreen==true" id="agora_local1"></div>
+		<div *ngIf="fullscreen==true" id="agora_local-fullscreen"></div>
 		<div *ngIf="fullscreen==false" id="agora_local"></div>
 	</div>
 	<div class="container">

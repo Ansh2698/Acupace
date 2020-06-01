@@ -23,7 +23,7 @@ export class SamplePageComponent{
   audioEnabled: boolean = true;
   videoEnabled: boolean = true;
   title = 'angular-video';
-  localCallId = 'agora_local1';
+  localCallId = 'agora_local-fullscreen';
   channel_name:any;
   remoteCalls: string[] = [];
   private client: AgoraClient;
@@ -295,7 +295,7 @@ export class SamplePageComponent{
       this.localCallId="agora_local";
     }
     else{
-      this.localCallId="agora_local1";
+      this.localCallId="agora_local-fullscreen";
     }
     this.LocalStreamID=this.localCallId;
     setTimeout(() => stream.play(this.localCallId), 1000);
