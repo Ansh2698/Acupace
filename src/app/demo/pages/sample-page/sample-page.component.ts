@@ -287,7 +287,7 @@ export class SamplePageComponent{
       this.remoteStreams[remote]=stream;
   }
   toggleScreen(){
-    console.log(this.localCallId);
+    this.Toggle(this.localCallId,this.LocalStreamID);
     let stream:Stream=this.remoteStreams[this.localCallId];
     stream.stop();
     this.fullscreen=(!this.fullscreen);
@@ -297,7 +297,7 @@ export class SamplePageComponent{
     else{
       this.localCallId="agora_local1";
     }
-    console.log(this.localCallId);
+    this.LocalStreamID=this.localCallId;
     setTimeout(() => stream.play(this.localCallId), 1000);
     this.remoteStreams[this.localCallId]=this.localStream;
   }
