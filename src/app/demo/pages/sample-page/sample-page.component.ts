@@ -41,6 +41,7 @@ export class SamplePageComponent{
   public LocalStreamID=this.localCallId;
   public fullscreen:boolean=true;
   readonly mode$: Observable<string>;
+  public cardClass:string;
   constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService,public readonly screenfullService: ScreenfullService) {
     this.mode$ = this.screenfullService.fullScreenActive$.pipe(
       map(active => (active ? 'active' : 'inactive'))
@@ -291,19 +292,7 @@ export class SamplePageComponent{
       this.remoteStreams[remote]=stream;
   }
   toggleScreen(){
-    this.Toggle(this.localCallId,this.LocalStreamID);
-    let stream:Stream=this.remoteStreams[this.localCallId];
-    stream.stop();
-    this.fullscreen=(!this.fullscreen);
-    if(this.fullscreen==false){
-      this.localCallId="agora_local";
-    }
-    else{
-      this.localCallId="agora_local-fullscreen";
-    }
-    this.LocalStreamID=this.localCallId;
-    setTimeout(() => stream.play(this.localCallId), 1000);
-    this.remoteStreams[this.localCallId]=this.localStream;
+    this.cardClass=this.cardClass==="full-card"?"":"full-card";
   }
 }
 
