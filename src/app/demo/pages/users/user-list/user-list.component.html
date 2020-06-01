@@ -37,9 +37,9 @@
             <p *ngIf="user.meeting_status==1"><input type="radio" class="green" disabled> Already Started</p>
           <p *ngIf="user.meeting_status==2"><input type="radio" class="red" disabled> Meeting ended</p></td>
             <td [ngStyle]="{'cursor':'pointer'}">
-              <p *ngIf="user.meeting_status==0"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: orange;">JOIN</span></a></p>
+              <p *ngIf="user.meeting_status==0"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: orange;">Please wait ...</span></a></p>
               <p *ngIf="user.meeting_status==1"><a (click)="Join_Meeting(user)"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: green;">JOIN</span></a></p>
-              <p *ngIf="user.meeting_status==2"><a disabled="true" (click)="disabled"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: red;">Ended</span></a></p>
+              <p *ngIf="user.meeting_status==2"><a disabled="true" (click)="disabled"><span class="badge m-r-5 badge-pill badge-primary" style="background-color: red;">Can't Join</span></a></p>
             </td>
           </tr>
         </tbody>
