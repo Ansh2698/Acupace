@@ -1,4 +1,4 @@
-<div class="video-container">
+<div class="video-container" (dblclick)="screenfullService.toggle()">
 	<div class="call-container">
 	</div>
 	<div [ngClass]="{'agora_local-fullscreen': fullscreen==true,'agora_local': fullscreen==false}">

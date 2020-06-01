@@ -5,12 +5,14 @@ import { SamplePageRoutingModule } from './sample-page-routing.module';
 import { SamplePageComponent } from './sample-page.component';
 import {SharedModule} from '../../../theme/shared/shared.module';
 import {WebServiceService} from '../../../providers/web-service/web-service.service'
+import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
 @NgModule({
   declarations: [SamplePageComponent],
   imports: [
     CommonModule,
     SamplePageRoutingModule,
     SharedModule,
+    NgxScreenfullModule,
     NgxAgoraModule.forRoot({AppID: 'c023596a5f6d4c949d9b207101ee8c74' })
   ],
   providers:[WebServiceService],

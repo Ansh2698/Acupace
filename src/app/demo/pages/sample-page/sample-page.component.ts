@@ -3,6 +3,9 @@ import { AgoraClient, ClientEvent, NgxAgoraService, Stream, StreamEvent } from '
 import { ActivatedRoute,Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import {WebServiceService} from '../../../providers/web-service/web-service.service'
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ScreenfullService } from '@ngx-extensions/screenfull';
 @Component({
   selector: 'app-sample-page',
   templateUrl: './sample-page.component.html',
@@ -37,7 +40,11 @@ export class SamplePageComponent{
   public remoteStreams = {};
   public LocalStreamID=this.localCallId;
   public fullscreen:boolean=true;
-  constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService) {
+  readonly mode$: Observable<string>;
+  constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService,public readonly screenfullService: ScreenfullService) {
+    this.mode$ = this.screenfullService.fullScreenActive$.pipe(
+      map(active => (active ? 'active' : 'inactive'))
+     );
   }
   ngOnInit(){
     this.sub = this.route
@@ -52,9 +59,6 @@ export class SamplePageComponent{
   }
   ngOnDestroy(){
     this.sub.unsubscribe();
-  }
-  Toggle_Screen(){
-    this.fullscreen!=this.fullscreen;
   }
   startCall(){
     this.activeCall=true;

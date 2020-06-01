@@ -34,7 +34,6 @@ import { FooterComponent } from './theme/layout/admin/footer/footer.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HeaderComponent } from './theme/layout/admin/header/header.component';
 //import { TestingModule } from './testing/testing.module';
-
 //import { NavBarModule } from './theme/layout/admin/nav-bar/nav-bar.module';
 
 @NgModule({
@@ -52,7 +51,6 @@ import { HeaderComponent } from './theme/layout/admin/header/header.component';
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective,
     BaseComponent,
     FooterComponent,
     HeaderComponent,
@@ -74,7 +72,7 @@ import { HeaderComponent } from './theme/layout/admin/header/header.component';
 
     //TestingModule
   ],
-  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule,AuthGuardService,AuthRedirectService,MeetingLists],
+  providers: [NavigationItem,WebServiceService,UserList,DeviceDetectorModule,AuthGuardService,AuthRedirectService,MeetingLists,ToggleFullScreenDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
