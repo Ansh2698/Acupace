@@ -39,7 +39,9 @@ import { map } from 'rxjs/operator/map';
 //   headers.append('Accept','application/json');
 //   headers.append('content-type','application/json'); 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class WebServiceService { 
 
 
@@ -108,6 +110,7 @@ export class WebServiceService {
         .subscribe(data => {
           console.log('login data', JSON.stringify(data));
           this.data = data;
+          localStorage.setItem("currentUser",JSON.stringify(data));
           resolve(this.data);
           // this.loader.dismissAll();
         }, (err) => {
