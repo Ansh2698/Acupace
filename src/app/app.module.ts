@@ -51,6 +51,7 @@ import { HeaderComponent } from './theme/layout/admin/header/header.component';
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
+    ToggleFullScreenDirective,
     BaseComponent,
     FooterComponent,
     HeaderComponent,
