@@ -41,6 +41,7 @@ export class AuthSigninComponent implements OnInit {
           console.log('login res -> ', response['result']);
           if (response['result'] != 'No Record') {
             localStorage.setItem("userDetails", data);
+            localStorage.setItem("currentUser",data);
             Swal.fire({
               icon: 'success',
               title: 'Welcome to the Acupace Video Conferencing Website',
@@ -58,7 +59,6 @@ export class AuthSigninComponent implements OnInit {
         }, (err) => {
           console.log("Error" + err);
         });
-
     }
 
   }
