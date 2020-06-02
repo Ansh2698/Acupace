@@ -35,7 +35,7 @@ p {
   position: relative;
   width: 100%;
   height: 100%;
-  bottom: 9%;
+  bottom: 6%;
   border-radius: 10px;
   border: #2d3436 6px solid;
 
@@ -107,10 +107,12 @@ p {
   height: 150px;
   overflow: hidden;
   /*will change this to hidden later to deny scolling to user*/
-  /*white-space: nowrap;*/
+  white-space: nowrap;
   background-color: #636e72;
   opacity: 0.7;
   border-radius: 10px;
+  position: relative;
+  top: 10px;
 }
 .agora_remote:hover {
   opacity: 1;
