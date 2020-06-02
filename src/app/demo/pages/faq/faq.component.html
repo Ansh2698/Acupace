@@ -1,50 +1,383 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        h1{
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 45px;
-            color: darkblue;
-        }
-        h{
-            font-size: 10px;
+<div class="container">
+    <h2><b>Frequently Asked Questions</b></h2>
+    <br><br>
 
-        }
-        p{
-            font-size: 20px;
-        }
-        .Mcontainer{
-            padding: 20px;
-            background-color: azure;
-        }
-        .container1{
-            padding: 10px;
-            background-color: darkgray;
-            border-radius: 10px;
-        }
-        .container2{
-            padding: 10px;
-            background-color: darkgray;
-            border-radius: 10px;
-        }
+<div class="panel-group">
+    <div class="panel-heading" (click)="toggle(1)">
+    <h3 class="panel-title BigBox">Getting Started with AcuMeet</h3>
+    </div>
+    <div class="panel-body" aria-hidden="true" *ngIf="index==1 || index==2 || index==3 || index==4 || index==5 || index==6">
+    <div class="panel-group">
 
-    </style>
-</head>
-<body>
-    <div class=Mcontainer>
-    <div style="text-align: center;">
-        <h1>FAQ's</h1>
+      <div class="panel-heading" (click)="toggle(2)">
+        <h4 class="panel-title BOX">
+            From where I can download latest version of AcuMeet?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==2">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(3)">
+        <h4 class="panel-title BOX">
+            Do you need an account to use AcuMeet?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==3">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(4)">
+        <h4 class="panel-title BOX">
+            How to use AcuMeet on Mac or PC?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==4">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(5)">
+        <h4 class="panel-title BOX">
+            How much does the AcuMeet charge for meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==5">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(6)">
+        <h4 class="panel-title BOX">
+            How can I signup to AcuMeet?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==6">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+      </div>
+      </div>
+
+
+      
+
+
+      <div class="panel-heading" (click)="toggle(7)">
+        <h3 class="panel-title BigBox">Hosting a meeting</h3>
+        </div>
+        <div class="panel-body" aria-hidden="true" *ngIf="index==7 || index==8 || index==9 || index==10">
+    <div class="panel-group">
+
+      <div class="panel-heading" (click)="toggle(8)">
+        <h4 class="panel-title BOX">
+            How can I create a meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==8">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(9)">
+        <h4 class="panel-title BOX">
+            How can I fix the date and time for the meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==9">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(10)">
+        <h4 class="panel-title BOX">
+            How can I invite others to my meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==10">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+      </div>
+      </div>
+
+
+      
+
+
+
+      <div class="panel-heading" (click)="toggle(11)">
+        <h3 class="panel-title BigBox">Joining a meeting</h3>
+        </div>
+        <div class="panel-body" aria-hidden="true" *ngIf="index==11 || index==12 || index==13 || index==14 || index==15 || index==16">
+    <div class="panel-group">
+
+      <div class="panel-heading" (click)="toggle(12)">
+        <h4 class="panel-title BOX">
+            How can I join a AcuMeet meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==12">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(13)">
+        <h4 class="panel-title BOX">
+            Can I join AcuMeet meeting with android or iphone?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==13">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(14)">
+        <h4 class="panel-title BOX">
+            Do I need to have webcam to join a meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==14">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(15)">
+        <h4 class="panel-title BOX">
+            How can I join using my system audio?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==15">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(16)">
+        <h4 class="panel-title BOX">
+            Can I use bluetooth headset for joining a meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==16">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+      </div>
+      </div>
+
+
+      
+
+
+
+      <div class="panel-heading" (click)="toggle(17)">
+        <h3 class="panel-title BigBox">Inside Meeting Features</h3>
+        </div>
+        <div class="panel-body" aria-hidden="true" *ngIf="index==17 || index==18 || index==19 || index==20 || index==21 || index==22">
+    <div class="panel-group">
+
+      <div class="panel-heading" (click)="toggle(18)">
+        <h4 class="panel-title BOX">
+            How can I record the meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==18">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(19)">
+        <h4 class="panel-title BOX">
+            Where can I find the recorded meeting?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==19">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(20)">
+        <h4 class="panel-title BOX">
+            Can I change quality of video streaming?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==20">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(21)">
+        <h4 class="panel-title BOX">
+            How can I share my screen?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==21">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(22)">
+        <h4 class="panel-title BOX">
+            How can I change my background image?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==22">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+      </div>
+      </div>
+
+
+      
+
+
+
+      <div class="panel-heading" (click)="toggle(23)">
+        <h3 class="panel-title BigBox">My AcuMeet Account</h3>
+        </div>
+        <div class="panel-body" aria-hidden="true" *ngIf="index==23 || index==24 || index==25 || index==26 || index==27 || index==28">
+    <div class="panel-group">
+
+      <div class="panel-heading" (click)="toggle(24)">
+        <h4 class="panel-title BOX">
+            How can I edit my profile?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==24">
+          Go to the profile section on the top-right corner and then click on the section which you want to edit.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(25)">
+        <h4 class="panel-title BOX">
+            How can I reset my password?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==25">
+          Go to the profile section and click on reset password.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(26)">
+        <h4 class="panel-title BOX">
+            How can I sign out?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==26">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(27)">
+        <h4 class="panel-title BOX">
+            What role do I have on my AcuMeet Account?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==27">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(28)">
+        <h4 class="panel-title BOX">
+            Where can I find my account owner?
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==28">
+          We expect people to know basic programming in one of C / C++ / Java / Python. People should have a good
+          understanding of loops and if - else constructs. They should understand about the scope of variables and
+          size of each data type.
+      </div>
+      </div>
+      </div>
+
+
+      
+
+
+
+      <div class="panel-heading" (click)="toggle(29)">
+        <h3 class="panel-title BigBox">Troubleshoot</h3>
+        </div>
+        <div class="panel-body" aria-hidden="true" *ngIf="index==29 || index==30 || index==31 || index==32 || index==33 || index==34">
+    <div class="panel-group">
+
+      <div class="panel-heading" (click)="toggle(30)">
+        <h4 class="panel-title BOX">
+            Audio is not working on mobile device.
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==30">
+        If any other device mic is on, turn off the mic of that device otherwise try reconnecting to the meeting.
+         If the trouble continues, reach us at <a href="#">help@acumeet.com</a>.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(31)">
+        <h4 class="panel-title BOX">
+            There was echo is my AcuMeet meeting.
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==31">
+        Try switching off the mic/audio or try to leave meeting and reconnect. If the trouble continues, reach us at 
+        <a href="#">help@acumeet.com</a>.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(32)">
+        <h4 class="panel-title BOX">
+            My webcam/camera is not working properly.
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==32">
+          Try switching off the camera/webcam or try to leave meeting and reconnect. If the trouble continues, reach us at 
+          <a href="#">help@acumeet.com</a>.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(33)">
+        <h4 class="panel-title BOX">
+            I cannot share my screen in meeting.
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==33">
+          Try sharing screen after switching off screen share once again. If the trouble continues, reach us at 
+          <a href="#">help@acumeet.com</a>.
+      </div>
+
+      <div class="panel-heading" (click)="toggle(34)">
+        <h4 class="panel-title BOX">
+            I was not able to join a meeting using the provided link.
+        </h4>
+      </div>
+      <div class="panel-body BodyBox" aria-hidden="true" *ngIf="index==34">
+          Your internet connection might not be stable. If the trouble continues, reach us at 
+          <a href="#">help@acumeet.com</a>.
+      </div>
+      </div>
+
+</div>
+
+
+      
+      <br><br>
+
     </div>
-    <div class="container1">
-        <h1>Change Password???</h1>
-        <p>You can easily change password by clicking <b>Edit Profile </b>under My Profile section.</p>
-    </div>
-    <br>
-    <div class="container2">
-        <h1>Forgot password??? Want to know how to reset it???</h1>
-        <p>Just click on the forgot password, you will get a reset password link on registered email id, just click on that and you are good to go!</p>
-    </div>
-    </div>
-</body>
-</html>
+</div>
