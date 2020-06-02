@@ -11,7 +11,7 @@
 				<i class="mic material-icons" (click)="toggleAudio()" *ngIf="!audioEnabled">mic_off</i>
 				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="videoEnabled">videocam</i>
 				<i class="mic material-icons" (click)="toggleVideo()" *ngIf="!videoEnabled">videocam_off</i>
-				<i class="archive material-icons" (click)="screenfullService.toggle();toggleScreen()">archive</i>
+				<i class="mic material-icons feather" [ngClass]="fullIcon" (click)="screenfullService.toggle();toggleScreen()" id="fullIcon"></i>
 			</ng-container>
 		</div>
 		<div *ngIf="fullscreen==true" id="agora_local-fullscreen"></div>

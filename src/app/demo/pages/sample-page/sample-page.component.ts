@@ -42,10 +42,12 @@ export class SamplePageComponent{
   public fullscreen:boolean=true;
   readonly mode$: Observable<string>;
   public cardClass:string;
+  public fullIcon: string;
   constructor(private ngxAgoraService: NgxAgoraService,private router:Router, private route: ActivatedRoute,private webservice:WebServiceService,public readonly screenfullService: ScreenfullService) {
     this.mode$ = this.screenfullService.fullScreenActive$.pipe(
       map(active => (active ? 'active' : 'inactive'))
      );
+     this.fullIcon = 'icon-maximize';
   }
   ngOnInit(){
     this.sub = this.route
@@ -293,6 +295,7 @@ export class SamplePageComponent{
   }
   toggleScreen(){
     this.cardClass=this.cardClass==="full-card"?"":"full-card";
+    this.fullIcon = this.cardClass === 'full-card' ? 'icon-minimize' : 'icon-maximize';
   }
 }
 
