@@ -69,7 +69,7 @@ const NavigationItems = [
       },
       {
         id:'faq',
-        title:'Faq',
+        title:'FAQ',
         type:'item',
         url:'/admin/faq',
         icon:'feather icon-help-circle'
