@@ -1,0 +1,45 @@
+.img {
+  border-radius: 100%;
+  display: flex;
+  flex: 0 0 200px;
+  height: 200px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.img img {
+  height: 100%;
+}
+
+.img__overlay {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.25s;
+  z-index: 1;
+}
+
+.img__overlay:hover {
+  opacity: 1;
+}
+
+.img__overlay {
+  background-color: rgba(46, 135, 223,0.4);
+  background: linear-gradient(65deg, rgba(46, 135, 223,0.6), rgba(46, 135, 223,0.6));
+  color: #fafafa;
+  font-size: 18px;
+}
+
+ul#media-icon li {
+  display:inline;
+}
