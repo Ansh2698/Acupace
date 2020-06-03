@@ -115,6 +115,16 @@ p {
   opacity: 1;
   border: #0984e3 5px solid;
 }
+.agora_remote:after{
+  content:"Overlay Content";
+  color: white;
+  font-size: 20px;
+  align-self: center;
+  position: absolute;
+  top:70%;
+  left:10%;
+  z-index:1;
+}
 #right_arrow  {
   font-size:48px;  
   color:#0984e3;
@@ -146,3 +156,8 @@ p {
   position: relative;
   bottom: 33px;
 }
+ #topText {
+   color: white;
+   font-size: 20px;
+   align-self: center;
+ }
