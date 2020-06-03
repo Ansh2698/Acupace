@@ -15,7 +15,9 @@ export interface MeetingList{
 }
 const UserLists=[];
 const HostLists=[];
-Injectable()
+Injectable({
+    providedIn: 'root'
+})
 export class MeetingLists{
     constructor() { }
     public Add(Notifications:any){
