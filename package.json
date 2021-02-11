@@ -38,7 +38,7 @@
     "agora-rtc-sdk": "3.0.2",
     "angular-agora-rtc": "^0.1.0",
     "angular-alert-module": "^2.0.3",
-    "apexcharts": "^3.8.0",
+    "apexcharts": "^3.24.0",
     "bootstrap": "^4.5.0",
     "css-animator": "^2.3.1",
     "jquery": "^3.4.1",
