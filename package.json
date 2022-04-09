@@ -42,7 +42,7 @@
     "bootstrap": "^4.5.0",
     "css-animator": "^2.3.1",
     "jquery": "^3.4.1",
-    "moment": "^2.25.3",
+    "moment": "^2.29.2",
     "ng-click-outside": "^4.0.0",
     "ng2-validation": "^4.2.0",
     "ngx-agora": "^2.0.1",
